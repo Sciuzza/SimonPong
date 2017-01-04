@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>SM Mechanics</name>
+    <events>
+        <event-group description="" sid="635946917284831" title="Cursor Movement">
+            <sub-events>
+                <event-block sid="2432883119169636">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="1943979843715117" type="Keyboard">
+                            <param id="0" name="Key">39 (Right arrow)</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="7823055276190332" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="7752112071524988" type="MenuSelect">
+                            <param id="0" name="X">566</param>
+                            <param id="1" name="Y">324</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="6010450895343656" type="MenuSelect">
+                            <param id="0" name="Instance variable">Selection</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Play" sid="3667039100161605" type="Audio">
+                            <param id="0" name="Audio file">Sound_cursore</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="5134431949317156">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="6674544505859533" type="Keyboard">
+                            <param id="0" name="Key">37 (Left arrow)</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="429468887642041" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="1875674702199429" type="MenuSelect">
+                            <param id="0" name="X">212</param>
+                            <param id="1" name="Y">324</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="5675896237326341" type="MenuSelect">
+                            <param id="0" name="Instance variable">Selection</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="0" name="Play" sid="9148283682647802" type="Audio">
+                            <param id="0" name="Audio file">Sound_cursore</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="7588727447540883" title="Choice">
+            <sub-events>
+                <comment>Single Player</comment>
+                <event-block sid="6134642483372845">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="9499971716452929" type="Keyboard">
+                            <param id="0" name="Key">32 (Barra Spaziatrice)</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="2752559104896779" type="MenuSelect">
+                            <param id="0" name="Instance variable">Selection</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Go to layout" sid="349288064183128" type="System">
+                            <param id="0" name="Layout">Difficulty Menu</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Vs Mod</comment>
+                <event-block sid="7799890792439528">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="3638291985623044" type="Keyboard">
+                            <param id="0" name="Key">13 (Return)</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="3150796363230071" type="MenuSelect">
+                            <param id="0" name="Instance variable">Selection</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

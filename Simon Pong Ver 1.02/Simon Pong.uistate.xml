@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2uistate>
+    <!--This is a UI state file - its content describes the user interface settings when the project was last open.
+It is entirely optional and the project will load without it.  If you are placing the project under source control,
+you probably do not want to add any .uistate.xml files to the repository.-->
+    <configurations>
+        <active>
+            <configuration name="HTML5" />
+        </active>
+        <display name="HTML5" />
+    </configurations>
+    <open-tabs>
+        <layout order="1">EasySingle</layout>
+        <layout order="2">HardSingle</layout>
+        <layout order="5">Intro</layout>
+        <layout order="6">Difficulty Menu</layout>
+        <layout order="9">Game Over</layout>
+        <event-sheet active="1" order="3">ES Mechanics</event-sheet>
+        <event-sheet order="4">HS Mechanincs</event-sheet>
+        <event-sheet order="7">DM Mechanics</event-sheet>
+        <event-sheet order="8">Intro Mechanics</event-sheet>
+        <event-sheet order="10">GM Mechanics</event-sheet>
+    </open-tabs>
+    <properties>
+        <property expanded="1" name="About" />
+        <property expanded="1" name="Project settings" />
+        <property expanded="0" name="Window Size" />
+        <property expanded="1" name="Configuration Settings" />
+    </properties>
+    <families-expanded root="1" />
+    <folders-expanded>
+        <folder expanded="1" path="object-folder/" />
+        <folder expanded="1" path="layout-folder/" />
+        <folder expanded="1" path="event-folder/" />
+        <folder expanded="1" path="file-folder/" />
+        <folder expanded="0" path="sound-folder/" />
+        <folder expanded="1" path="music-folder/" />
+        <folder expanded="0" path="file-folder/Icons/" />
+        <folder expanded="1" path="animation-folder/ToHitBlocks/" />
+        <folder expanded="1" path="animation-folder/Player1/" />
+        <folder expanded="1" path="animation-folder/Ball/" />
+        <folder expanded="1" path="animation-folder/InviWalls/" />
+        <folder expanded="1" path="animation-folder/LosingWall/" />
+        <folder expanded="1" path="animation-folder/SeqColor/" />
+        <folder expanded="1" path="animation-folder/SeqSelector/" />
+        <folder expanded="1" path="animation-folder/ComboAni/" />
+        <folder expanded="1" path="animation-folder/RedColorLittle/" />
+        <folder expanded="1" path="animation-folder/BlueColorLittle/" />
+        <folder expanded="1" path="animation-folder/GreenColorLittle/" />
+        <folder expanded="1" path="animation-folder/MenuBackground/" />
+        <folder expanded="1" path="animation-folder/MenuSelect/" />
+        <folder expanded="1" path="animation-folder/DifficultyBackground/" />
+        <folder expanded="1" path="animation-folder/DFSelector/" />
+        <folder expanded="1" path="animation-folder/GameoverBackground/" />
+        <folder expanded="1" path="animation-folder/GameoverSelector/" />
+        <folder expanded="1" path="animation-folder/Sprite2/" />
+        <folder expanded="1" path="animation-folder/BackgroundIntro/" />
+        <folder expanded="1" path="animation-folder/Credits/" />
+        <folder expanded="1" path="animation-folder/SpaceIntro/" />
+        <folder expanded="1" path="animation-folder/SimonPong/" />
+        <folder expanded="1" path="animation-folder/Tutorial/" />
+        <folder expanded="1" path="animation-folder/Sprite4/" />
+        <folder expanded="1" path="animation-folder/ToHitBlocksHM/" />
+        <folder expanded="1" path="animation-folder/InviWallsHM/" />
+        <folder expanded="1" path="animation-folder/LosingWallHM/" />
+        <folder expanded="1" path="animation-folder/Player1HM/" />
+        <folder expanded="1" path="animation-folder/BallHM/" />
+        <folder expanded="1" path="animation-folder/BlueColorLittleHM/" />
+        <folder expanded="1" path="animation-folder/ComboAniHM/" />
+        <folder expanded="1" path="animation-folder/GreenColorLittleHM/" />
+        <folder expanded="1" path="animation-folder/RedColorLittleHM/" />
+        <folder expanded="1" path="animation-folder/YellowColorLittleHM/" />
+        <folder expanded="1" path="animation-folder/SeqColorHM/" />
+        <folder expanded="1" path="animation-folder/SeqSelectorHM/" />
+    </folders-expanded>
+</c2uistate>

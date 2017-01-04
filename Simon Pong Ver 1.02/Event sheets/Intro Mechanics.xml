@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Intro Mechanics</name>
+    <events>
+        <variable constant="0" name="SimonCount" sid="1496252857930096" static="0" type="number">0</variable>
+        <variable constant="0" name="SpaceCount" sid="4258419838959379" static="0" type="number">0</variable>
+        <variable constant="0" name="NameCount" sid="3636207778502021" static="0" type="number">0</variable>
+        <variable constant="0" name="Alexis" sid="4448741274161756" static="0" type="text">Alexis Benitez</variable>
+        <variable constant="0" name="Ilenia" sid="3638803708737995" static="0" type="text">Ilenia Nacci</variable>
+        <variable constant="0" name="Cris" sid="4878020682832581" static="0" type="text">Cristiano Piromalli</variable>
+        <variable constant="0" name="Textcount" sid="3548610722203453" static="0" type="number">0</variable>
+        <variable constant="0" name="Story" sid="6651091382314955" static="0" type="text">Once upon a time, Two Bosses fought for the videogame supremacy.          Ralph and Nolan wanted to be the FATHER of videogames.                  The battle gave life to a new GAME.</variable>
+        <event-block sid="8254776734595297">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="3717141727779811" type="System" />
+            </conditions>
+            <actions>
+                <action disabled="1" id="5" name="Set web font" sid="9284206231370691" type="Story">
+                    <param id="0" name="Family name">&quot;Press+Start+2P&quot;</param>
+                    <param id="1" name="CSS URL">&quot;https://fonts.googleapis.com/css?family=Press+Start+2P&quot;</param>
+                </action>
+                <action disabled="1" id="3" name="Set font size" sid="8438698536500629" type="Story">
+                    <param id="0" name="Size (pt)">24</param>
+                </action>
+                <action disabled="1" id="5" name="Set web font" sid="7463965974784478" type="Cris">
+                    <param id="0" name="Family name">&quot;Press+Start+2P&quot;</param>
+                    <param id="1" name="CSS URL">&quot;https://fonts.googleapis.com/css?family=Press+Start+2P&quot;</param>
+                </action>
+                <action disabled="1" id="3" name="Set font size" sid="5022027235296942" type="Cris">
+                    <param id="0" name="Size (pt)">24</param>
+                </action>
+                <action disabled="1" id="5" name="Set web font" sid="3707507908214803" type="Alexis">
+                    <param id="0" name="Family name">&quot;Press+Start+2P&quot;</param>
+                    <param id="1" name="CSS URL">&quot;https://fonts.googleapis.com/css?family=Press+Start+2P&quot;</param>
+                </action>
+                <action disabled="1" id="3" name="Set font size" sid="2043183526809528" type="Alexis">
+                    <param id="0" name="Size (pt)">24</param>
+                </action>
+                <action disabled="1" id="5" name="Set web font" sid="6812064883289378" type="Ilenia">
+                    <param id="0" name="Family name">&quot;Press+Start+2P&quot;</param>
+                    <param id="1" name="CSS URL">&quot;https://fonts.googleapis.com/css?family=Press+Start+2P&quot;</param>
+                </action>
+                <action disabled="1" id="3" name="Set font size" sid="8019211194675287" type="Ilenia">
+                    <param id="0" name="Size (pt)">24</param>
+                </action>
+                <action id="2" name="Stop" sid="8926525330081391" type="RedColorLittle" />
+                <action id="-16" name="Set opacity" sid="6120546915484686" type="RedColorLittle">
+                    <param id="0" name="Opacity">0</param>
+                </action>
+                <action id="2" name="Stop" sid="4489366938028768" type="GreenColorLittle" />
+                <action id="-16" name="Set opacity" sid="5900964914501497" type="GreenColorLittle">
+                    <param id="0" name="Opacity">0</param>
+                </action>
+                <action id="2" name="Stop" sid="7248521313839987" type="BlueColorLittle" />
+                <action id="-16" name="Set opacity" sid="5308626447517689" type="BlueColorLittle">
+                    <param id="0" name="Opacity">0</param>
+                </action>
+                <action id="-16" name="Wait" sid="1846039919413409" type="System">
+                    <param id="0" name="Seconds">1.0</param>
+                </action>
+                <action behavior="Flash" id="1" name="Stop flashing" sid="2257399364706483" type="SpaceIntro" />
+                <action id="0" name="Play" sid="769218925118071" type="Audio">
+                    <param id="0" name="Audio file">keyboard_sound</param>
+                    <param id="2" name="Loop">1</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;Keyboard&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="6757694240085471">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="8764676825824739" type="System" />
+            </conditions>
+            <actions>
+                <action id="-10" name="Add to" sid="7888808939899828" type="System">
+                    <param id="0" name="Variable">Textcount</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action disabled="1" id="0" name="Set text" sid="7337389628049091" type="TextCountText">
+                    <param id="0" name="Text">&quot;TC: &quot; &amp;Textcount</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="368108197194587">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="3144423814681047" type="System">
+                            <param id="0" name="First value">Textcount % 5</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="8566410657916368" type="Story">
+                            <param id="0" name="Text">mid(Story,0,(Textcount/5))</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="6049665423316483">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="3259698612520133" type="System">
+                    <param id="0" name="Variable">Textcount</param>
+                    <param id="1" name="Comparison">5</param>
+                    <param id="2" name="Value">850</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="6" name="Stop" sid="6918826786964083" type="Audio">
+                    <param id="0" name="Tag">&quot;Keyboard&quot;</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="883893591933551">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="347489274244894" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="9944214148204883" type="System">
+                            <param id="0" name="Variable">SimonCount</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-16" name="Set opacity" sid="228624103373032" type="SimonPong">
+                            <param id="0" name="Opacity">(SimonCount/ 3) </param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="2142916123357695">
+            <conditions>
+                <condition id="-10" name="Compare opacity" sid="8209782451902395" type="SimonPong">
+                    <param id="0" name="Comparison">0</param>
+                    <param id="1" name="Opacity">100</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-16" name="Set opacity" sid="2226378091723897" type="SpaceIntro">
+                    <param id="0" name="Opacity">100</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="7243686559851292">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="8432834727340821" type="Keyboard">
+                            <param id="0" name="Key">32 (Barra Spaziatrice)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Go to layout" sid="3018279151737254" type="System">
+                            <param id="0" name="Layout">Difficulty Menu</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="5553061361760591">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="8314896833672344" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="2500626554481125" type="System">
+                            <param id="0" name="Variable">NameCount</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-16" name="Set opacity" sid="2885539035690154" type="RedColorLittle">
+                            <param id="0" name="Opacity">(NameCount/ 4)</param>
+                        </action>
+                        <action id="-16" name="Set opacity" sid="8409497746979542" type="GreenColorLittle">
+                            <param id="0" name="Opacity">(NameCount/ 4)</param>
+                        </action>
+                        <action id="-16" name="Set opacity" sid="7036991438757832" type="BlueColorLittle">
+                            <param id="0" name="Opacity">(NameCount/ 4)</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="1604652100421832">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="4039848629482824" type="System">
+                                    <param id="0" name="First value">NameCount % 8</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="1500317904890598" type="Cris">
+                                    <param id="0" name="Text">mid(Cris,0,(NameCount/8))</param>
+                                </action>
+                                <action id="0" name="Set text" sid="5401491072103862" type="Alexis">
+                                    <param id="0" name="Text">mid(Alexis,0,(NameCount/8))</param>
+                                </action>
+                                <action id="0" name="Set text" sid="5265500133558927" type="Ilenia">
+                                    <param id="0" name="Text">mid(Ilenia,0,(NameCount/8))</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="3596934557525213">
+            <conditions>
+                <condition id="-10" name="Compare opacity" sid="635231959553542" type="SpaceIntro">
+                    <param id="0" name="Comparison">0</param>
+                    <param id="1" name="Opacity">100</param>
+                </condition>
+                <condition id="-4" name="Trigger once while true" sid="7172815365064145" type="System" />
+            </conditions>
+            <actions>
+                <action behavior="Flash" id="0" name="Flash" sid="3080071205304252" type="SpaceIntro">
+                    <param id="0" name="&apos;On&apos; time">0.3</param>
+                    <param id="1" name="&apos;Off&apos; time">0.1</param>
+                    <param id="2" name="Duration">60.0</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

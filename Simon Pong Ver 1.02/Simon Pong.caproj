@@ -1,0 +1,1341 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2project>
+    <name>Simon Pong</name>
+    <description>gg</description>
+    <version>1.0.0.0</version>
+    <author>Simon Team</author>
+    <author-email></author-email>
+    <author-website>http://</author-website>
+    <app-id>com.mycompany.myapp</app-id>
+    <unique-id>101kto7vhoi1y</unique-id>
+    <saved-with-version>22100</saved-with-version>
+    <used-plugins>
+        <plugin author="Scirra" id="Arr" version="1">Array</plugin>
+        <plugin author="Scirra" id="Audio" version="1">Audio</plugin>
+        <plugin author="Scirra" id="Function" version="1">Function</plugin>
+        <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
+        <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Spritefont2" version="1">Sprite font</plugin>
+        <plugin author="Scirra" id="Text" version="1">Text</plugin>
+        <plugin author="Scirra" id="TextBox" version="1">Text box</plugin>
+    </used-plugins>
+    <used-behaviors>
+        <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
+        <behavior author="Scirra" id="EightDir" version="1">8 Direction</behavior>
+        <behavior author="Scirra" id="Fade" version="1">Fade</behavior>
+        <behavior author="Scirra" id="Flash" version="1">Flash</behavior>
+        <behavior author="Scirra" id="Pin" version="1">Pin</behavior>
+        <behavior author="Scirra" id="Timer" version="1">Timer</behavior>
+        <behavior author="Scirra" id="solid" version="1">Solid</behavior>
+    </used-behaviors>
+    <used-effects />
+    <configurations>
+        <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
+    </configurations>
+    <window-size>
+        <width>800</width>
+        <height>600</height>
+    </window-size>
+    <pixel-rounding>0</pixel-rounding>
+    <preview-effects>1</preview-effects>
+    <use-loader-layout>0</use-loader-layout>
+    <configuration-settings>
+        <prop name="Clear background">Yes</prop>
+        <prop name="Downscaling">Medium quality</prop>
+        <prop name="Enable WebGL">On</prop>
+        <prop name="Fullscreen in browser">Off</prop>
+        <prop name="Fullscreen scaling">High quality</prop>
+        <prop name="Loader style">Construct 2 splash</prop>
+        <prop name="Orientations">Any</prop>
+        <prop name="Pause on unfocus">No</prop>
+        <prop name="Physics engine">Box2D asm.js</prop>
+        <prop name="Preload sounds">Yes</prop>
+        <prop name="Preview browser">(default)</prop>
+        <prop name="Sampling">Linear</prop>
+        <prop name="Use high-DPI display">Yes</prop>
+    </configuration-settings>
+    <object-folder>
+        <object-type name="ToHitBlocks" sid="4830734935571342">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="8246328515814294">
+                    <behavior id="solid" />
+                </behavior-type>
+                <behavior-type name="Flash" sid="6987261451562421">
+                    <behavior id="Flash" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="6" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="8039419548557333" speed="0">
+                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\Sciuzza\Desktop\Simon Pong Assets\sprite\blocco_rosso.png" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\Sciuzza\Desktop\Simon Pong Assets\sprite\blocco_verde.png" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\Sciuzza\Desktop\Simon Pong Assets\sprite\blocco_blu.png" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Player1" sid="5989046854682423">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable comment="1 when is moving on the right, -1 when is moving on the left, 0 otherwise" name="Friction" sid="6140944715903372" type="number" />
+                <instance-variable name="Start" sid="9183597826422954" type="boolean" />
+                <instance-variable name="Tutorial" sid="9260549066146401" type="boolean" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="Solid" sid="7809837796959601">
+                    <behavior id="solid" />
+                </behavior-type>
+                <behavior-type name="8Direction" sid="9578109309946343">
+                    <behavior id="EightDir" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="5118668402376776" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.545455" original-source="C:\Users\Sciuzza\Desktop\Simon Pong Assets\sprite\cursore.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Ball" sid="9561353117383052">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="CurrentAngle" sid="7775368650370057" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="Solid" sid="3807794846102364">
+                    <behavior id="solid" />
+                </behavior-type>
+                <behavior-type name="Bullet" sid="523517605427961">
+                    <behavior id="Bullet" />
+                </behavior-type>
+                <behavior-type name="Pin" sid="9514935016675593">
+                    <behavior id="Pin" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="1869551777914764" speed="5">
+                    <frame duration="1" hotspotX="0.545455" hotspotY="0.545455" original-source="C:\Users\Sciuzza\Desktop\Simon Pong Assets\sprite\pallina.png">
+                        <collision-poly>
+                            <point x="0.5" y="0" />
+                            <point x="1" y="0.5" />
+                            <point x="0.5" y="1" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="InviWalls" sid="9456405575250625">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="3321785982254211">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="2664457915130972" speed="5">
+                    <frame duration="1" hotspotX="1" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Keyboard" sid="1261555037015962">
+            <plugin id="Keyboard" />
+        </object-type>
+        <object-type name="LosingWall" sid="6394687108161894">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="9910357247489753">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="4356433400032225" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="SeqColor" sid="504367613087899">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Bullet" sid="631369065575171">
+                    <behavior id="Bullet" />
+                </behavior-type>
+                <behavior-type name="Fade" sid="7767525811200618">
+                    <behavior id="Fade" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="3" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="87039933921753" speed="0">
+                    <frame duration="1" hotspotX="0.513514" hotspotY="0.513514" original-source="C:\Users\Sciuzza\Desktop\Simon Pong Assets\sprite\colore_rosso.png">
+                        <collision-poly>
+                            <point x="0.260274" y="0.256757" />
+                            <point x="0.493151" y="0" />
+                            <point x="0.753425" y="0.243243" />
+                            <point x="1" y="0.5" />
+                            <point x="0.753425" y="0.756757" />
+                            <point x="0.493151" y="1" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.513514" hotspotY="0.5" original-source="C:\Users\Sciuzza\Desktop\Simon Pong Assets\sprite\colore_verde.png">
+                        <collision-poly>
+                            <point x="0.260274" y="0.256757" />
+                            <point x="0.493151" y="0" />
+                            <point x="0.753425" y="0.243243" />
+                            <point x="1" y="0.5" />
+                            <point x="0.753425" y="0.756757" />
+                            <point x="0.493151" y="1" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.513514" hotspotY="0.5" original-source="C:\Users\Sciuzza\Desktop\Simon Pong Assets\sprite\colore_blu.png">
+                        <collision-poly>
+                            <point x="0.260274" y="0.256757" />
+                            <point x="0.493151" y="0" />
+                            <point x="0.753425" y="0.243243" />
+                            <point x="1" y="0.5" />
+                            <point x="0.753425" y="0.756757" />
+                            <point x="0.493151" y="1" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="SeqSelector" sid="8660788999817192">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="6749648911535417" speed="5">
+                    <frame duration="1" hotspotX="0.505263" hotspotY="0.505263" original-source="C:\Users\Sciuzza\Desktop\Simon Pong Assets\sprite\selezione_sequenza.png">
+                        <collision-poly>
+                            <point x="0.2" y="0.68421" />
+                            <point x="0.189474" y="0.278947" />
+                            <point x="0.0210526" y="0.494737" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Life" sid="8565644212134016">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Score" sid="8012218180366338">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="ComboAni" sid="237900000627022">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Fade" sid="4773429865532233">
+                    <behavior id="Fade" />
+                </behavior-type>
+                <behavior-type name="Flash" sid="3984055303097657">
+                    <behavior id="Flash" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="2" loop="1" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3452347915711943" speed="5">
+                    <frame duration="1" hotspotX="0.501845" hotspotY="0.503759" original-source="C:\Users\Sciuzza\Desktop\Simon Pong Assets\sprite\Cornice_Combo_01.png">
+                        <collision-poly>
+                            <point x="0" y="0" />
+                            <point x="0.498155" y="0.112782" />
+                            <point x="1" y="0" />
+                            <point x="0.0811808" y="0.496241" />
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.501845" hotspotY="0.503759" original-source="C:\Users\Sciuzza\Desktop\Simon Pong Assets\sprite\Cornice_Combo_01.png">
+                        <collision-poly>
+                            <point x="0" y="0" />
+                            <point x="0.498155" y="0.112782" />
+                            <point x="1" y="0" />
+                            <point x="0.0811808" y="0.496241" />
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="ComboText" sid="3774043549945017">
+            <plugin id="Text" />
+            <behaviors>
+                <behavior-type name="Fade" sid="6782166666163184">
+                    <behavior id="Fade" />
+                </behavior-type>
+            </behaviors>
+        </object-type>
+        <object-type name="Function" sid="7701442458008116">
+            <plugin id="Function" />
+        </object-type>
+        <object-type name="RedColorLittle" sid="4437082969508527">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Bullet" sid="2668911454178582">
+                    <behavior id="Bullet" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="6" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="2823189620882519" speed="2.7">
+                    <frame duration="1" hotspotX="0.513514" hotspotY="0.513514" original-source="C:\Users\Sciuzza\Desktop\Simon Pong Assets\sprite\colore_rosso.png">
+                        <collision-poly>
+                            <point x="0.260274" y="0.256757" />
+                            <point x="0.493151" y="0" />
+                            <point x="0.753425" y="0.243243" />
+                            <point x="1" y="0.5" />
+                            <point x="0.753425" y="0.756757" />
+                            <point x="0.493151" y="1" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.511111" hotspotY="0.511111" original-source="C:\Users\Sciuzza\Desktop\Simon Pong Assets\sprite\colore_rosso.png">
+                        <collision-poly>
+                            <point x="0.260274" y="0.256757" />
+                            <point x="0.493151" y="0" />
+                            <point x="0.753425" y="0.243243" />
+                            <point x="1" y="0.5" />
+                            <point x="0.753425" y="0.756757" />
+                            <point x="0.493151" y="1" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.509434" hotspotY="0.509434" original-source="C:\Users\Sciuzza\Desktop\Simon Pong Assets\sprite\colore_rosso.png">
+                        <collision-poly>
+                            <point x="0.260274" y="0.256757" />
+                            <point x="0.493151" y="0" />
+                            <point x="0.753425" y="0.243243" />
+                            <point x="1" y="0.5" />
+                            <point x="0.753425" y="0.756757" />
+                            <point x="0.493151" y="1" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.516667" hotspotY="0.516667" original-source="C:\Users\Sciuzza\Desktop\Simon Pong Assets\sprite\colore_rosso.png">
+                        <collision-poly>
+                            <point x="0.260274" y="0.256757" />
+                            <point x="0.493151" y="0" />
+                            <point x="0.753425" y="0.243243" />
+                            <point x="1" y="0.5" />
+                            <point x="0.753425" y="0.756757" />
+                            <point x="0.493151" y="1" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.507463" hotspotY="0.507463" original-source="C:\Users\Sciuzza\Desktop\Simon Pong Assets\sprite\colore_rosso.png">
+                        <collision-poly>
+                            <point x="0.260274" y="0.256757" />
+                            <point x="0.493151" y="0" />
+                            <point x="0.753425" y="0.243243" />
+                            <point x="1" y="0.5" />
+                            <point x="0.753425" y="0.756757" />
+                            <point x="0.493151" y="1" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Sciuzza\Desktop\Simon Pong Assets\sprite\colore_rosso.png">
+                        <collision-poly>
+                            <point x="0.260274" y="0.256757" />
+                            <point x="0.493151" y="0" />
+                            <point x="0.753425" y="0.243243" />
+                            <point x="1" y="0.5" />
+                            <point x="0.753425" y="0.756757" />
+                            <point x="0.493151" y="1" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="BlueColorLittle" sid="9921026540933542">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Bullet" sid="4209662728563603">
+                    <behavior id="Bullet" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="6" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="5689107408189891" speed="2.7">
+                    <frame duration="1" hotspotX="0.513514" hotspotY="0.513514" original-source="C:\Users\Sciuzza\Desktop\Simon Pong Assets\sprite\colore_blu.png">
+                        <collision-poly>
+                            <point x="0.27027" y="0.27027" />
+                            <point x="0.486486" y="0.027027" />
+                            <point x="0.756757" y="0.243243" />
+                            <point x="1" y="0.486486" />
+                            <point x="0.756757" y="0.756757" />
+                            <point x="0.486486" y="1" />
+                            <point x="0.243243" y="0.756757" />
+                            <point x="0.027027" y="0.486486" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.511111" hotspotY="0.511111" original-source="C:\Users\Sciuzza\Desktop\Simon Pong Assets\sprite\colore_blu.png">
+                        <collision-poly>
+                            <point x="0.266667" y="0.266667" />
+                            <point x="0.488889" y="0.0222222" />
+                            <point x="0.755556" y="0.244444" />
+                            <point x="1" y="0.488889" />
+                            <point x="0.755556" y="0.755556" />
+                            <point x="0.488889" y="1" />
+                            <point x="0" y="0.488889" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.509434" hotspotY="0.509434" original-source="C:\Users\Sciuzza\Desktop\Simon Pong Assets\sprite\colore_blu.png">
+                        <collision-poly>
+                            <point x="0.260274" y="0.256757" />
+                            <point x="0.493151" y="0" />
+                            <point x="0.753425" y="0.243243" />
+                            <point x="1" y="0.5" />
+                            <point x="0.753425" y="0.756757" />
+                            <point x="0.493151" y="1" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.516667" hotspotY="0.516667" original-source="C:\Users\Sciuzza\Desktop\Simon Pong Assets\sprite\colore_blu.png">
+                        <collision-poly>
+                            <point x="0.260274" y="0.256757" />
+                            <point x="0.493151" y="0" />
+                            <point x="0.753425" y="0.243243" />
+                            <point x="1" y="0.5" />
+                            <point x="0.753425" y="0.756757" />
+                            <point x="0.493151" y="1" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.507463" hotspotY="0.507463" original-source="C:\Users\Sciuzza\Desktop\Simon Pong Assets\sprite\colore_blu.png">
+                        <collision-poly>
+                            <point x="0.260274" y="0.256757" />
+                            <point x="0.493151" y="0" />
+                            <point x="0.753425" y="0.243243" />
+                            <point x="1" y="0.5" />
+                            <point x="0.753425" y="0.756757" />
+                            <point x="0.493151" y="1" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Sciuzza\Desktop\Simon Pong Assets\sprite\colore_blu.png">
+                        <collision-poly>
+                            <point x="0.260274" y="0.256757" />
+                            <point x="0.493151" y="0" />
+                            <point x="0.753425" y="0.243243" />
+                            <point x="1" y="0.5" />
+                            <point x="0.753425" y="0.756757" />
+                            <point x="0.493151" y="1" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="GreenColorLittle" sid="6045096619838085">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Bullet" sid="1623781200435506">
+                    <behavior id="Bullet" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="6" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="8790233012612053" speed="2.7">
+                    <frame duration="1" hotspotX="0.513514" hotspotY="0.513514" original-source="C:\Users\Sciuzza\Desktop\Simon Pong Assets\sprite\colore_verde.png">
+                        <collision-poly>
+                            <point x="0.260274" y="0.256757" />
+                            <point x="0.493151" y="0" />
+                            <point x="0.753425" y="0.243243" />
+                            <point x="1" y="0.5" />
+                            <point x="0.753425" y="0.756757" />
+                            <point x="0.493151" y="1" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.511111" hotspotY="0.511111" original-source="C:\Users\Sciuzza\Desktop\Simon Pong Assets\sprite\colore_verde.png">
+                        <collision-poly>
+                            <point x="0.260274" y="0.256757" />
+                            <point x="0.493151" y="0" />
+                            <point x="0.753425" y="0.243243" />
+                            <point x="1" y="0.5" />
+                            <point x="0.753425" y="0.756757" />
+                            <point x="0.493151" y="1" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.509434" hotspotY="0.509434" original-source="C:\Users\Sciuzza\Desktop\Simon Pong Assets\sprite\colore_verde.png">
+                        <collision-poly>
+                            <point x="0.260274" y="0.256757" />
+                            <point x="0.493151" y="0" />
+                            <point x="0.753425" y="0.243243" />
+                            <point x="1" y="0.5" />
+                            <point x="0.753425" y="0.756757" />
+                            <point x="0.493151" y="1" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.516667" hotspotY="0.516667" original-source="C:\Users\Sciuzza\Desktop\Simon Pong Assets\sprite\colore_verde.png">
+                        <collision-poly>
+                            <point x="0.260274" y="0.256757" />
+                            <point x="0.493151" y="0" />
+                            <point x="0.753425" y="0.243243" />
+                            <point x="1" y="0.5" />
+                            <point x="0.753425" y="0.756757" />
+                            <point x="0.493151" y="1" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.507463" hotspotY="0.507463" original-source="C:\Users\Sciuzza\Desktop\Simon Pong Assets\sprite\colore_verde.png">
+                        <collision-poly>
+                            <point x="0.260274" y="0.256757" />
+                            <point x="0.493151" y="0" />
+                            <point x="0.753425" y="0.243243" />
+                            <point x="1" y="0.5" />
+                            <point x="0.753425" y="0.756757" />
+                            <point x="0.493151" y="1" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Sciuzza\Desktop\Simon Pong Assets\sprite\colore_verde.png">
+                        <collision-poly>
+                            <point x="0.260274" y="0.256757" />
+                            <point x="0.493151" y="0" />
+                            <point x="0.753425" y="0.243243" />
+                            <point x="1" y="0.5" />
+                            <point x="0.753425" y="0.756757" />
+                            <point x="0.493151" y="1" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="MenuBackground" sid="9739764449992779">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="852245514127151" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\dbga_23\Downloads\schermata_Menu.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="MenuSelect" sid="9590560024064835">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="Selection" sid="9311300474795672" type="number" />
+            </instance-variables>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="110723187367922" speed="5">
+                    <frame duration="1" hotspotX="0.545455" hotspotY="0.545455" original-source="C:\Users\dbga_23\Downloads\pallina.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="DifficultyBackground" sid="894527935431175">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="895711345048722" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\dbga_23\Downloads\Schermata_difficolta_sprite.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="DFSelector" sid="9566006397680021">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="Selection" sid="7922733312650614" type="number" />
+            </instance-variables>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="9297434382070879" speed="5">
+                    <frame duration="1" hotspotX="0.545455" hotspotY="0.545455" original-source="C:\Users\dbga_23\Downloads\pallina.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="GameoverBackground" sid="1961349750861461">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="9561299754231455" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Sciuzza\Google Drive\Pong\sprite\Schermata_GameOver_spritesingle.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="HighestScores" sid="2469358443647238">
+            <plugin id="Text" />
+        </object-type>
+        <object-type global="1" name="Scores" sid="383429093643905">
+            <plugin id="Arr" />
+        </object-type>
+        <object-type name="SpriteFont" sid="1458992283914499">
+            <plugin id="Spritefont2" />
+            <texture original-source="C:\Users\dbga_23\Downloads\pallina.png" />
+        </object-type>
+        <object-type name="GameoverSelector" sid="8021180909892709">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="Selection" sid="2226572949943675" type="number" />
+            </instance-variables>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="1337909587129777" speed="5">
+                    <frame duration="1" hotspotX="0.545455" hotspotY="0.545455" original-source="C:\Users\dbga_23\Downloads\pallina.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Sprite2" sid="4280917582065404">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="8099962695143989" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="TextBox" sid="8592691217543541">
+            <plugin id="TextBox" />
+        </object-type>
+        <object-type name="BackgroundIntro" sid="454263950942808">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="1899775578276695" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Sciuzza\Google Drive\Pong\sprite\intro\fondo_intro_sprite.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Credits" sid="4324764711069127">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="594698134656949" speed="5">
+                    <frame duration="1" hotspotX="0.500686" hotspotY="0.5" original-source="C:\Users\Sciuzza\Google Drive\Pong\sprite\intro\credits_intro_sprite.png">
+                        <collision-poly>
+                            <point x="0.104252" y="0.535211" />
+                            <point x="0.499314" y="0.197183" />
+                            <point x="0.895748" y="0.535211" />
+                            <point x="0.928669" y="0.633803" />
+                            <point x="0.499314" y="0.661972" />
+                            <point x="0.0342936" y="0.823944" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="SpaceIntro" sid="6066236183006356">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Flash" sid="1767038617149394">
+                    <behavior id="Flash" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="5567321390356426" speed="5">
+                    <frame duration="1" hotspotX="0.501754" hotspotY="0.5" original-source="C:\Users\Sciuzza\Google Drive\Pong\sprite\intro\press_space_intro.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="SimonPong" sid="7655968184700961">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3502288608471199" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.504762" original-source="C:\Users\Sciuzza\Google Drive\Pong\sprite\intro\simonpong_intro_sprite.png">
+                        <collision-poly>
+                            <point x="0.0187668" y="0.133333" />
+                            <point x="0.981233" y="0.133333" />
+                            <point x="0.986595" y="0.904762" />
+                            <point x="0.0214477" y="0.847619" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Story" sid="1312903418031237">
+            <plugin id="Text" />
+            <behaviors>
+                <behavior-type name="Timer" sid="6914460771633799">
+                    <behavior id="Timer" />
+                </behavior-type>
+            </behaviors>
+        </object-type>
+        <object-type name="Friction" sid="1699528382468021">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="AngleofMotion" sid="9347978476680719">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="TextCountText" sid="559698355295821">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Cris" sid="4685384875620169">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Ilenia" sid="9135230143841347">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Alexis" sid="3153476290671775">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Audio" sid="224893774960378">
+            <plugin id="Audio" />
+        </object-type>
+        <object-type name="Tutorial" sid="8860937479309826">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="2037739953655468" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.501961" original-source="C:\Users\Sciuzza\Google Drive\Pong\sprite\Tutorial_Sprite.png">
+                        <collision-poly>
+                            <point x="0.019685" y="0.0196078" />
+                            <point x="0.5" y="0.380392" />
+                            <point x="0.980315" y="0.0196078" />
+                            <point x="0.976378" y="0.976471" />
+                            <point x="0.023622" y="0.976471" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="ScoreOnBall" sid="771772753486944">
+            <plugin id="Text" />
+            <behaviors>
+                <behavior-type name="Fade" sid="4711900719390763">
+                    <behavior id="Fade" />
+                </behavior-type>
+            </behaviors>
+        </object-type>
+        <object-type name="Sprite4" sid="7146672411249338">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="9038786806932944" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Sciuzza\Google Drive\Pong\sprite\Mod_Hard\blocco_Blu_Mod_Hard.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="ToHitBlocksHM" sid="5744567842007471">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="2054780510600202">
+                    <behavior id="solid" />
+                </behavior-type>
+                <behavior-type name="Flash" sid="3777761681559374">
+                    <behavior id="Flash" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="8" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="5772629327977649" speed="0">
+                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\Sciuzza\Desktop\Simon Pong Assets\sprite\blocco_rosso.png" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\Sciuzza\Desktop\Simon Pong Assets\sprite\blocco_verde.png" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\Sciuzza\Desktop\Simon Pong Assets\sprite\blocco_blu.png" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\Sciuzza\Google Drive\Pong\sprite\Mod_Hard\blocco_Giallo_Mod_Hard.png" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\Sciuzza\Google Drive\Pong\sprite\Mod_Hard\blocco_Giallo_Mod_Hard.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="InviWallsHM" sid="4467325434915765">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="8396806790521858">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="9816626766696225" speed="5">
+                    <frame duration="1" hotspotX="1" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="LosingWallHM" sid="6616867156445591">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="7196727727673703">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="7297119948176382" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Player1HM" sid="3793402487306029">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable comment="1 when is moving on the right, -1 when is moving on the left, 0 otherwise" name="Friction" sid="1575048230265198" type="number" />
+                <instance-variable name="Start" sid="1459925229809267" type="boolean" />
+                <instance-variable name="Tutorial" sid="2566086968798048" type="boolean" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="Solid" sid="5141508303073866">
+                    <behavior id="solid" />
+                </behavior-type>
+                <behavior-type name="8Direction" sid="5140816254385163">
+                    <behavior id="EightDir" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="1461322059567639" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.545455" original-source="C:\Users\Sciuzza\Desktop\Simon Pong Assets\sprite\cursore.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="BallHM" sid="9020432506629715">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="CurrentAngle" sid="8766209912540145" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="Solid" sid="9279138611773433">
+                    <behavior id="solid" />
+                </behavior-type>
+                <behavior-type name="Bullet" sid="7536390219109416">
+                    <behavior id="Bullet" />
+                </behavior-type>
+                <behavior-type name="Pin" sid="9352311417559092">
+                    <behavior id="Pin" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="1169719100074437" speed="5">
+                    <frame duration="1" hotspotX="0.545455" hotspotY="0.545455" original-source="C:\Users\Sciuzza\Desktop\Simon Pong Assets\sprite\pallina.png">
+                        <collision-poly>
+                            <point x="0.5" y="0" />
+                            <point x="1" y="0.5" />
+                            <point x="0.5" y="1" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="BlueColorLittleHM" sid="7472457052178622">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Bullet" sid="84755991599744">
+                    <behavior id="Bullet" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="6" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="8083627976750115" speed="2.7">
+                    <frame duration="1" hotspotX="0.513514" hotspotY="0.513514" original-source="C:\Users\Sciuzza\Desktop\Simon Pong Assets\sprite\colore_blu.png">
+                        <collision-poly>
+                            <point x="0.27027" y="0.27027" />
+                            <point x="0.486486" y="0.027027" />
+                            <point x="0.756757" y="0.243243" />
+                            <point x="1" y="0.486486" />
+                            <point x="0.756757" y="0.756757" />
+                            <point x="0.486486" y="1" />
+                            <point x="0.243243" y="0.756757" />
+                            <point x="0.027027" y="0.486486" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.511111" hotspotY="0.511111" original-source="C:\Users\Sciuzza\Desktop\Simon Pong Assets\sprite\colore_blu.png">
+                        <collision-poly>
+                            <point x="0.266667" y="0.266667" />
+                            <point x="0.488889" y="0.0222222" />
+                            <point x="0.755556" y="0.244444" />
+                            <point x="1" y="0.488889" />
+                            <point x="0.755556" y="0.755556" />
+                            <point x="0.488889" y="1" />
+                            <point x="0" y="0.488889" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.509434" hotspotY="0.509434" original-source="C:\Users\Sciuzza\Desktop\Simon Pong Assets\sprite\colore_blu.png">
+                        <collision-poly>
+                            <point x="0.260274" y="0.256757" />
+                            <point x="0.493151" y="0" />
+                            <point x="0.753425" y="0.243243" />
+                            <point x="1" y="0.5" />
+                            <point x="0.753425" y="0.756757" />
+                            <point x="0.493151" y="1" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.516667" hotspotY="0.516667" original-source="C:\Users\Sciuzza\Desktop\Simon Pong Assets\sprite\colore_blu.png">
+                        <collision-poly>
+                            <point x="0.260274" y="0.256757" />
+                            <point x="0.493151" y="0" />
+                            <point x="0.753425" y="0.243243" />
+                            <point x="1" y="0.5" />
+                            <point x="0.753425" y="0.756757" />
+                            <point x="0.493151" y="1" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.507463" hotspotY="0.507463" original-source="C:\Users\Sciuzza\Desktop\Simon Pong Assets\sprite\colore_blu.png">
+                        <collision-poly>
+                            <point x="0.260274" y="0.256757" />
+                            <point x="0.493151" y="0" />
+                            <point x="0.753425" y="0.243243" />
+                            <point x="1" y="0.5" />
+                            <point x="0.753425" y="0.756757" />
+                            <point x="0.493151" y="1" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Sciuzza\Desktop\Simon Pong Assets\sprite\colore_blu.png">
+                        <collision-poly>
+                            <point x="0.260274" y="0.256757" />
+                            <point x="0.493151" y="0" />
+                            <point x="0.753425" y="0.243243" />
+                            <point x="1" y="0.5" />
+                            <point x="0.753425" y="0.756757" />
+                            <point x="0.493151" y="1" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="ComboAniHM" sid="7793236753636663">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Fade" sid="7810042669783267">
+                    <behavior id="Fade" />
+                </behavior-type>
+                <behavior-type name="Flash" sid="7824518859753105">
+                    <behavior id="Flash" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="2" loop="1" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="6460721340539421" speed="5">
+                    <frame duration="1" hotspotX="0.501845" hotspotY="0.503759" original-source="C:\Users\Sciuzza\Desktop\Simon Pong Assets\sprite\Cornice_Combo_01.png">
+                        <collision-poly>
+                            <point x="0" y="0" />
+                            <point x="0.498155" y="0.112782" />
+                            <point x="1" y="0" />
+                            <point x="0.0811808" y="0.496241" />
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.501845" hotspotY="0.503759" original-source="C:\Users\Sciuzza\Desktop\Simon Pong Assets\sprite\Cornice_Combo_01.png">
+                        <collision-poly>
+                            <point x="0" y="0" />
+                            <point x="0.498155" y="0.112782" />
+                            <point x="1" y="0" />
+                            <point x="0.0811808" y="0.496241" />
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="ComboTextHM" sid="6779672988112419">
+            <plugin id="Text" />
+            <behaviors>
+                <behavior-type name="Fade" sid="8307203515155086">
+                    <behavior id="Fade" />
+                </behavior-type>
+            </behaviors>
+        </object-type>
+        <object-type name="GreenColorLittleHM" sid="7985001296551726">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Bullet" sid="7771914819068638">
+                    <behavior id="Bullet" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="6" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="5627722020790774" speed="2.7">
+                    <frame duration="1" hotspotX="0.513514" hotspotY="0.513514" original-source="C:\Users\Sciuzza\Desktop\Simon Pong Assets\sprite\colore_verde.png">
+                        <collision-poly>
+                            <point x="0.260274" y="0.256757" />
+                            <point x="0.493151" y="0" />
+                            <point x="0.753425" y="0.243243" />
+                            <point x="1" y="0.5" />
+                            <point x="0.753425" y="0.756757" />
+                            <point x="0.493151" y="1" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.511111" hotspotY="0.511111" original-source="C:\Users\Sciuzza\Desktop\Simon Pong Assets\sprite\colore_verde.png">
+                        <collision-poly>
+                            <point x="0.260274" y="0.256757" />
+                            <point x="0.493151" y="0" />
+                            <point x="0.753425" y="0.243243" />
+                            <point x="1" y="0.5" />
+                            <point x="0.753425" y="0.756757" />
+                            <point x="0.493151" y="1" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.509434" hotspotY="0.509434" original-source="C:\Users\Sciuzza\Desktop\Simon Pong Assets\sprite\colore_verde.png">
+                        <collision-poly>
+                            <point x="0.260274" y="0.256757" />
+                            <point x="0.493151" y="0" />
+                            <point x="0.753425" y="0.243243" />
+                            <point x="1" y="0.5" />
+                            <point x="0.753425" y="0.756757" />
+                            <point x="0.493151" y="1" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.516667" hotspotY="0.516667" original-source="C:\Users\Sciuzza\Desktop\Simon Pong Assets\sprite\colore_verde.png">
+                        <collision-poly>
+                            <point x="0.260274" y="0.256757" />
+                            <point x="0.493151" y="0" />
+                            <point x="0.753425" y="0.243243" />
+                            <point x="1" y="0.5" />
+                            <point x="0.753425" y="0.756757" />
+                            <point x="0.493151" y="1" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.507463" hotspotY="0.507463" original-source="C:\Users\Sciuzza\Desktop\Simon Pong Assets\sprite\colore_verde.png">
+                        <collision-poly>
+                            <point x="0.260274" y="0.256757" />
+                            <point x="0.493151" y="0" />
+                            <point x="0.753425" y="0.243243" />
+                            <point x="1" y="0.5" />
+                            <point x="0.753425" y="0.756757" />
+                            <point x="0.493151" y="1" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Sciuzza\Desktop\Simon Pong Assets\sprite\colore_verde.png">
+                        <collision-poly>
+                            <point x="0.260274" y="0.256757" />
+                            <point x="0.493151" y="0" />
+                            <point x="0.753425" y="0.243243" />
+                            <point x="1" y="0.5" />
+                            <point x="0.753425" y="0.756757" />
+                            <point x="0.493151" y="1" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="LifeHM" sid="7519851465092456">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="RedColorLittleHM" sid="9789224305182379">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Bullet" sid="5376936552893605">
+                    <behavior id="Bullet" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="6" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="6876124936222525" speed="2.7">
+                    <frame duration="1" hotspotX="0.513514" hotspotY="0.513514" original-source="C:\Users\Sciuzza\Desktop\Simon Pong Assets\sprite\colore_rosso.png">
+                        <collision-poly>
+                            <point x="0.260274" y="0.256757" />
+                            <point x="0.493151" y="0" />
+                            <point x="0.753425" y="0.243243" />
+                            <point x="1" y="0.5" />
+                            <point x="0.753425" y="0.756757" />
+                            <point x="0.493151" y="1" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.511111" hotspotY="0.511111" original-source="C:\Users\Sciuzza\Desktop\Simon Pong Assets\sprite\colore_rosso.png">
+                        <collision-poly>
+                            <point x="0.260274" y="0.256757" />
+                            <point x="0.493151" y="0" />
+                            <point x="0.753425" y="0.243243" />
+                            <point x="1" y="0.5" />
+                            <point x="0.753425" y="0.756757" />
+                            <point x="0.493151" y="1" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.509434" hotspotY="0.509434" original-source="C:\Users\Sciuzza\Desktop\Simon Pong Assets\sprite\colore_rosso.png">
+                        <collision-poly>
+                            <point x="0.260274" y="0.256757" />
+                            <point x="0.493151" y="0" />
+                            <point x="0.753425" y="0.243243" />
+                            <point x="1" y="0.5" />
+                            <point x="0.753425" y="0.756757" />
+                            <point x="0.493151" y="1" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.516667" hotspotY="0.516667" original-source="C:\Users\Sciuzza\Desktop\Simon Pong Assets\sprite\colore_rosso.png">
+                        <collision-poly>
+                            <point x="0.260274" y="0.256757" />
+                            <point x="0.493151" y="0" />
+                            <point x="0.753425" y="0.243243" />
+                            <point x="1" y="0.5" />
+                            <point x="0.753425" y="0.756757" />
+                            <point x="0.493151" y="1" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.507463" hotspotY="0.507463" original-source="C:\Users\Sciuzza\Desktop\Simon Pong Assets\sprite\colore_rosso.png">
+                        <collision-poly>
+                            <point x="0.260274" y="0.256757" />
+                            <point x="0.493151" y="0" />
+                            <point x="0.753425" y="0.243243" />
+                            <point x="1" y="0.5" />
+                            <point x="0.753425" y="0.756757" />
+                            <point x="0.493151" y="1" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Sciuzza\Desktop\Simon Pong Assets\sprite\colore_rosso.png">
+                        <collision-poly>
+                            <point x="0.260274" y="0.256757" />
+                            <point x="0.493151" y="0" />
+                            <point x="0.753425" y="0.243243" />
+                            <point x="1" y="0.5" />
+                            <point x="0.753425" y="0.756757" />
+                            <point x="0.493151" y="1" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="YellowColorLittleHM" sid="8118675899081011">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Bullet" sid="3223472727979813">
+                    <behavior id="Bullet" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="6" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="2816528422861031" speed="2.7">
+                    <frame duration="1" hotspotX="0.513514" hotspotY="0.513514" original-source="C:\Users\Sciuzza\Google Drive\Pong\sprite\Mod_Hard\colore_Giallo.png">
+                        <collision-poly>
+                            <point x="0.260274" y="0.256757" />
+                            <point x="0.493151" y="0" />
+                            <point x="0.753425" y="0.243243" />
+                            <point x="1" y="0.5" />
+                            <point x="0.753425" y="0.756757" />
+                            <point x="0.493151" y="1" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.511111" hotspotY="0.511111" original-source="C:\Users\Sciuzza\Google Drive\Pong\sprite\Mod_Hard\colore_Giallo.png">
+                        <collision-poly>
+                            <point x="0.260274" y="0.256757" />
+                            <point x="0.493151" y="0" />
+                            <point x="0.753425" y="0.243243" />
+                            <point x="1" y="0.5" />
+                            <point x="0.753425" y="0.756757" />
+                            <point x="0.493151" y="1" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.509434" hotspotY="0.509434" original-source="C:\Users\Sciuzza\Google Drive\Pong\sprite\Mod_Hard\colore_Giallo.png">
+                        <collision-poly>
+                            <point x="0.260274" y="0.256757" />
+                            <point x="0.493151" y="0" />
+                            <point x="0.753425" y="0.243243" />
+                            <point x="1" y="0.5" />
+                            <point x="0.753425" y="0.756757" />
+                            <point x="0.493151" y="1" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.516667" hotspotY="0.516667" original-source="C:\Users\Sciuzza\Google Drive\Pong\sprite\Mod_Hard\colore_Giallo.png">
+                        <collision-poly>
+                            <point x="0.260274" y="0.256757" />
+                            <point x="0.493151" y="0" />
+                            <point x="0.753425" y="0.243243" />
+                            <point x="1" y="0.5" />
+                            <point x="0.753425" y="0.756757" />
+                            <point x="0.493151" y="1" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.507463" hotspotY="0.507463" original-source="C:\Users\Sciuzza\Google Drive\Pong\sprite\Mod_Hard\colore_Giallo.png">
+                        <collision-poly>
+                            <point x="0.260274" y="0.256757" />
+                            <point x="0.493151" y="0" />
+                            <point x="0.753425" y="0.243243" />
+                            <point x="1" y="0.5" />
+                            <point x="0.753425" y="0.756757" />
+                            <point x="0.493151" y="1" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Sciuzza\Google Drive\Pong\sprite\Mod_Hard\colore_Giallo.png">
+                        <collision-poly>
+                            <point x="0.260274" y="0.256757" />
+                            <point x="0.493151" y="0" />
+                            <point x="0.753425" y="0.243243" />
+                            <point x="1" y="0.5" />
+                            <point x="0.753425" y="0.756757" />
+                            <point x="0.493151" y="1" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="ScoreHM" sid="1371838575132324">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="ScoreOnBallHM" sid="2765607971137285">
+            <plugin id="Text" />
+            <behaviors>
+                <behavior-type name="Fade" sid="2367530735024765">
+                    <behavior id="Fade" />
+                </behavior-type>
+            </behaviors>
+        </object-type>
+        <object-type name="SeqColorHM" sid="1966183781887019">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Bullet" sid="3339620250209243">
+                    <behavior id="Bullet" />
+                </behavior-type>
+                <behavior-type name="Fade" sid="4821356846484255">
+                    <behavior id="Fade" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="4" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3138116954564432" speed="0">
+                    <frame duration="1" hotspotX="0.513514" hotspotY="0.513514" original-source="C:\Users\Sciuzza\Desktop\Simon Pong Assets\sprite\colore_rosso.png">
+                        <collision-poly>
+                            <point x="0.260274" y="0.256757" />
+                            <point x="0.493151" y="0" />
+                            <point x="0.753425" y="0.243243" />
+                            <point x="1" y="0.5" />
+                            <point x="0.753425" y="0.756757" />
+                            <point x="0.493151" y="1" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.513514" hotspotY="0.5" original-source="C:\Users\Sciuzza\Desktop\Simon Pong Assets\sprite\colore_verde.png">
+                        <collision-poly>
+                            <point x="0.260274" y="0.256757" />
+                            <point x="0.493151" y="0" />
+                            <point x="0.753425" y="0.243243" />
+                            <point x="1" y="0.5" />
+                            <point x="0.753425" y="0.756757" />
+                            <point x="0.493151" y="1" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.513514" hotspotY="0.5" original-source="C:\Users\Sciuzza\Desktop\Simon Pong Assets\sprite\colore_blu.png">
+                        <collision-poly>
+                            <point x="0.260274" y="0.256757" />
+                            <point x="0.493151" y="0" />
+                            <point x="0.753425" y="0.243243" />
+                            <point x="1" y="0.5" />
+                            <point x="0.753425" y="0.756757" />
+                            <point x="0.493151" y="1" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.513514" hotspotY="0.5" original-source="C:\Users\Sciuzza\Google Drive\Pong\sprite\Mod_Hard\colore_Giallo.png">
+                        <collision-poly>
+                            <point x="0.493151" y="0" />
+                            <point x="0.753425" y="0.243243" />
+                            <point x="1" y="0.5" />
+                            <point x="0.767123" y="0.77027" />
+                            <point x="0.493151" y="1" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="SeqSelectorHM" sid="6461757724077116">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="9596666251573423" speed="5">
+                    <frame duration="1" hotspotX="0.505263" hotspotY="0.505263" original-source="C:\Users\Sciuzza\Desktop\Simon Pong Assets\sprite\selezione_sequenza.png">
+                        <collision-poly>
+                            <point x="0.2" y="0.68421" />
+                            <point x="0.189474" y="0.278947" />
+                            <point x="0.0210526" y="0.494737" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="LevelUp" sid="3214038577132079">
+            <plugin id="Text" />
+            <behaviors>
+                <behavior-type name="Fade" sid="1538844515143017">
+                    <behavior id="Fade" />
+                </behavior-type>
+                <behavior-type name="Flash" sid="9904582724148187">
+                    <behavior id="Flash" />
+                </behavior-type>
+            </behaviors>
+        </object-type>
+        <object-type name="LevelUpHM" sid="4762664904962597">
+            <plugin id="Text" />
+            <behaviors>
+                <behavior-type name="Fade" sid="6454857070948104">
+                    <behavior id="Fade" />
+                </behavior-type>
+                <behavior-type name="Flash" sid="3984729766940664">
+                    <behavior id="Flash" />
+                </behavior-type>
+            </behaviors>
+        </object-type>
+    </object-folder>
+    <families />
+    <layout-folder>
+        <layout>Intro.xml</layout>
+        <layout>Start Menu.xml</layout>
+        <layout>Difficulty Menu.xml</layout>
+        <layout>EasySingle.xml</layout>
+        <layout>HardSingle.xml</layout>
+        <layout>Game Over.xml</layout>
+    </layout-folder>
+    <event-folder>
+        <event-sheet>ES Mechanics.xml</event-sheet>
+        <event-sheet>SM Mechanics.xml</event-sheet>
+        <event-sheet>DM Mechanics.xml</event-sheet>
+        <event-sheet>GM Mechanics.xml</event-sheet>
+        <event-sheet>Intro Mechanics.xml</event-sheet>
+        <event-sheet>HS Mechanincs.xml</event-sheet>
+    </event-folder>
+    <global-instances>
+        <global-instance type="Keyboard" uid="7" />
+        <global-instance type="Function" uid="16" />
+        <global-instance type="Audio" uid="46">
+            <properties>
+                <timescale-audio>Off</timescale-audio>
+                <saveload>All</saveload>
+                <play-in-background>No</play-in-background>
+                <positioned-audio></positioned-audio>
+                <panning-model>HRTF</panning-model>
+                <distance-model>Inverse</distance-model>
+                <listener-z-height>600</listener-z-height>
+                <reference-distance>600</reference-distance>
+                <maximum-distance>10000</maximum-distance>
+                <roll-off-factor>1</roll-off-factor>
+            </properties>
+        </global-instance>
+    </global-instances>
+    <sounds-folder>
+        <file name="Sound_cursore.m4a" />
+        <file name="Sound_cursore.ogg" />
+        <file name="blochi_negative.m4a" />
+        <file name="blochi_negative.ogg" />
+        <file name="blochi_positive.m4a" />
+        <file name="blochi_positive.ogg" />
+        <file name="blochi_positive_02.m4a" />
+        <file name="blochi_positive_02.ogg" />
+        <file name="blochi_positive_03.m4a" />
+        <file name="blochi_positive_03.ogg" />
+        <file name="blochi_positive_04.m4a" />
+        <file name="blochi_positive_04.ogg" />
+        <file name="blochi_positive_05.m4a" />
+        <file name="blochi_positive_05.ogg" />
+        <file name="blochi_positive_06.m4a" />
+        <file name="blochi_positive_06.ogg" />
+        <file name="blochi_positive_07.m4a" />
+        <file name="blochi_positive_07.ogg" />
+        <file name="blochi_positive_08.m4a" />
+        <file name="blochi_positive_08.ogg" />
+        <file name="blochi_positive_09.m4a" />
+        <file name="blochi_positive_09.ogg" />
+        <file name="blochi_positive_10.m4a" />
+        <file name="blochi_positive_10.ogg" />
+        <file name="game_8bits.m4a" />
+        <file name="Game_normal.m4a" />
+        <file name="Game_normal.ogg" />
+        <file name="keyboard_sound.m4a" />
+        <file name="keyboard_sound.ogg" />
+    </sounds-folder>
+    <music-folder />
+    <files-folder>
+        <file-folder name="Icons">
+            <file name="icon-16.png" />
+            <file name="icon-32.png" />
+            <file name="icon-114.png" />
+            <file name="icon-128.png" />
+            <file name="icon-256.png" />
+            <file name="loading-logo.png" />
+        </file-folder>
+    </files-folder>
+</c2project>

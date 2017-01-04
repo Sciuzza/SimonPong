@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>GM Mechanics</name>
+    <events>
+        <variable constant="0" name="Name" sid="8187073059569242" static="0" type="text"></variable>
+        <event-block sid="1645226622222645">
+            <conditions>
+                <condition id="3" name="For each element" sid="2110848125696841" type="Scores">
+                    <param id="0" name="Axes">2</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="1" name="Append text" sid="6192034190448555" type="HighestScores">
+                    <param id="0" name="Text">newline &amp; newline &amp; (Scores.CurX + 1) &amp; &quot;- &quot; &amp; Scores.CurValue</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block disabled="1" sid="2891209017700513">
+            <conditions>
+                <condition id="2" name="Key is down" sid="9454780262867799" type="Keyboard">
+                    <param id="0" name="Key">39 (Right arrow)</param>
+                </condition>
+                <condition id="-4" name="Trigger once while true" sid="1472737755279963" type="System" />
+            </conditions>
+            <actions>
+                <action id="-3" name="Set position" sid="2443917878635509" type="GameoverSelector">
+                    <param id="0" name="X">600</param>
+                    <param id="1" name="Y">525</param>
+                </action>
+                <action id="-10" name="Set value" sid="3425479546749968" type="GameoverSelector">
+                    <param id="0" name="Instance variable">Selection</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="0" name="Play" sid="5044534465006204" type="Audio">
+                    <param id="0" name="Audio file">Sound_cursore</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block disabled="1" sid="4878168847582878">
+            <conditions>
+                <condition id="2" name="Key is down" sid="7206054607203203" type="Keyboard">
+                    <param id="0" name="Key">37 (Left arrow)</param>
+                </condition>
+                <condition id="-4" name="Trigger once while true" sid="1863059519248953" type="System" />
+            </conditions>
+            <actions>
+                <action id="-3" name="Set position" sid="3489676575933252" type="GameoverSelector">
+                    <param id="0" name="X">200</param>
+                    <param id="1" name="Y">525</param>
+                </action>
+                <action id="-10" name="Set value" sid="9369511163988684" type="GameoverSelector">
+                    <param id="0" name="Instance variable">Selection</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="0" name="Play" sid="8467366584362533" type="Audio">
+                    <param id="0" name="Audio file">Sound_cursore</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block disabled="1" sid="5992095824186056">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="9902395566864093" type="Keyboard">
+                    <param id="0" name="Key">32 (Barra Spaziatrice)</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="2305829379702305" type="GameoverSelector">
+                    <param id="0" name="Instance variable">Selection</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions />
+        </event-block>
+        <event-block sid="4418910789606576">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="5544458202806221" type="Keyboard">
+                    <param id="0" name="Key">32 (Barra Spaziatrice)</param>
+                </condition>
+                <condition disabled="1" id="-7" name="Compare instance variable" sid="6847508407760767" type="GameoverSelector">
+                    <param id="0" name="Instance variable">Selection</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-2" name="Go to layout" sid="1163271601298569" type="System">
+                    <param id="0" name="Layout">Difficulty Menu</param>
+                </action>
+                <action id="-21" name="Reset global variables" sid="1055345576243678" type="System" />
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

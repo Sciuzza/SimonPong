@@ -1,0 +1,1423 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>ES Mechanics</name>
+    <events>
+        <variable constant="0" name="Level8" sid="7546493053732275" static="0" type="text">MATRIX BULLET MODE!!!</variable>
+        <variable constant="0" name="Level7" sid="4044395137149036" static="0" type="text">OMG SO FAST!!!</variable>
+        <variable constant="0" name="Level6" sid="7305164256946132" static="0" type="text">UBER FAST</variable>
+        <variable constant="0" name="Level5" sid="7877728699586921" static="0" type="text">SUPER FAST</variable>
+        <variable constant="0" name="Level4" sid="3364491743977026" static="0" type="text">FASTEEER</variable>
+        <variable constant="0" name="Level3" sid="2297127954434601" static="0" type="text">FASTER</variable>
+        <variable constant="0" name="Level2" sid="8515901663163013" static="0" type="text">FAST</variable>
+        <variable constant="0" name="BallBaseSpeed" sid="6523778165857276" static="0" type="number">350</variable>
+        <variable constant="0" name="PlayerBaseSpeed" sid="6548999051722232" static="0" type="number">500</variable>
+        <variable constant="0" name="PlayerSpeed" sid="9616084234812719" static="0" type="number">0</variable>
+        <variable constant="0" name="BallSpeed" sid="7639729157592154" static="0" type="number">0</variable>
+        <variable constant="0" name="CorrectHits" sid="6622976728010432" static="0" type="number">0</variable>
+        <variable constant="0" name="Combo" sid="1866894130383578" static="0" type="number">0</variable>
+        <variable constant="0" name="Score" sid="9697522696746212" static="0" type="number">20</variable>
+        <variable constant="0" name="Life" sid="2452192632238877" static="0" type="number">3</variable>
+        <variable constant="0" name="SeqChoice" sid="2077362075005215" static="0" type="number">0</variable>
+        <event-group description="" sid="5244973566308754" title="General Layout Rules">
+            <sub-events>
+                <event-block sid="7895210836934018">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="826470125196435" type="System" />
+                    </conditions>
+                    <actions>
+                        <action behavior="Pin" id="0" name="Pin to object" sid="9015447458652779" type="Ball">
+                            <param id="0" name="Pin to">Player1</param>
+                            <param id="1" name="Mode">1</param>
+                        </action>
+                        <action disabled="1" id="5" name="Set web font" sid="3327108680463902" type="Life">
+                            <param id="0" name="Family name">&quot;Press+Start+2P&quot;</param>
+                            <param id="1" name="CSS URL">&quot;https://fonts.googleapis.com/css?family=Press+Start+2P&quot;</param>
+                        </action>
+                        <action disabled="1" id="3" name="Set font size" sid="9262896333885759" type="Life">
+                            <param id="0" name="Size (pt)">24</param>
+                        </action>
+                        <action disabled="1" id="5" name="Set web font" sid="3421345210723957" type="Score">
+                            <param id="0" name="Family name">&quot;Press+Start+2P&quot;</param>
+                            <param id="1" name="CSS URL">&quot;https://fonts.googleapis.com/css?family=Press+Start+2P&quot;</param>
+                        </action>
+                        <action disabled="1" id="3" name="Set font size" sid="1787806973181196" type="Score">
+                            <param id="0" name="Size (pt)">24</param>
+                        </action>
+                        <action disabled="1" id="5" name="Set web font" sid="5895439086893574" type="ScoreOnBall">
+                            <param id="0" name="Family name">&quot;Press+Start+2P&quot;</param>
+                            <param id="1" name="CSS URL">&quot;https://fonts.googleapis.com/css?family=Press+Start+2P&quot;</param>
+                        </action>
+                        <action disabled="1" id="3" name="Set font size" sid="8779109532256746" type="ScoreOnBall">
+                            <param id="0" name="Size (pt)">18</param>
+                        </action>
+                        <action id="0" name="Set text" sid="1573130216054342" type="Life">
+                            <param id="0" name="Text">&quot;Life&quot; &amp;newline &amp;Life</param>
+                        </action>
+                        <action id="0" name="Set text" sid="7618267491793334" type="Score">
+                            <param id="0" name="Text">&quot;Score &quot; &amp;newline &amp;Score</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="6349243611249704" type="System">
+                            <param id="0" name="Variable">SeqChoice</param>
+                            <param id="1" name="Value">floor(random(3))</param>
+                        </action>
+                        <action id="5" name="Set frame" sid="4236537715296624" type="SeqColor">
+                            <param id="0" name="Frame number">floor(random(3))</param>
+                        </action>
+                        <action id="0" name="Call function" sid="7912869293459317" type="Function">
+                            <param id="0" name="Name">&quot;SeqChoice&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                        <action id="-9" name="Set value" sid="6363869335583217" type="System">
+                            <param id="0" name="Variable">BallSpeed</param>
+                            <param id="1" name="Value">Ball.Bullet.Speed</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="3827328837253993" type="System">
+                            <param id="0" name="Variable">PlayerSpeed</param>
+                            <param id="1" name="Value">Player1.8Direction.MaxSpeed</param>
+                        </action>
+                        <action id="0" name="Play" sid="3205777422625576" type="Audio">
+                            <param id="0" name="Audio file">Game_normal</param>
+                            <param id="2" name="Loop">1</param>
+                            <param id="3" name="Volume">-10</param>
+                            <param id="1" name="Tag (optional)">&quot;GM Normal&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="7753607525380053">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="1711974230489961" type="Keyboard">
+                            <param id="0" name="Key">32 (Barra Spaziatrice)</param>
+                        </condition>
+                        <condition id="-8" name="Is boolean instance variable set" sid="1644117013520359" type="Player1">
+                            <param id="0" name="Instance variable">Start</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Pin" id="1" name="Unpin" sid="1200968369984491" type="Ball" />
+                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="9870196399799007" type="Ball">
+                            <param id="0" name="Angle">270</param>
+                        </action>
+                        <action id="0" name="Play" sid="9362186537353413" type="Audio">
+                            <param id="0" name="Audio file">Sound_cursore</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="5757659010852324" type="Player1">
+                            <param id="0" name="Instance variable">Start</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="526915128444759">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="275878965089945" type="System" />
+                    </conditions>
+                    <actions>
+                        <action disabled="1" id="0" name="Set text" sid="279554815038128" type="Friction">
+                            <param id="0" name="Text">&quot;Friction: &quot; &amp;Player1.Friction</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="422043565804356">
+                            <conditions>
+                                <condition id="2" name="Key is down" sid="2881342736585699" type="Keyboard">
+                                    <param id="0" name="Key">39 (Right arrow)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="4676594476522862" type="Player1">
+                                    <param id="0" name="Instance variable">Friction</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="9978612667718744">
+                            <conditions>
+                                <condition id="2" name="Key is down" sid="8012787551117979" type="Keyboard">
+                                    <param id="0" name="Key">37 (Left arrow)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="1250381506557741" type="Player1">
+                                    <param id="0" name="Instance variable">Friction</param>
+                                    <param id="1" name="Value">-1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="2991541027706804">
+                            <conditions>
+                                <condition id="2" inverted="1" name="Key is down" sid="5498347127527529" type="Keyboard">
+                                    <param id="0" name="Key">39 (Right arrow)</param>
+                                </condition>
+                                <condition id="2" inverted="1" name="Key is down" sid="6792345359803679" type="Keyboard">
+                                    <param id="0" name="Key">37 (Left arrow)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="642744924319398" type="Player1">
+                                    <param id="0" name="Instance variable">Friction</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="1905548687022913">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="971530757411509" type="System">
+                            <param id="0" name="First value">CorrectHits % 5</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">0</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="2303058498808401" type="System" />
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="8935329606615418" type="Player1">
+                            <param id="0" name="Instance variable">Start</param>
+                        </condition>
+                        <condition behavior="Bullet" id="0" name="Compare speed" sid="1445411048521697" type="Ball">
+                            <param id="0" name="Comparison">3</param>
+                            <param id="1" name="Speed">575</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="1636331116602524" type="System">
+                            <param id="0" name="Variable">BallSpeed</param>
+                            <param id="1" name="Value">ball.Bullet.Speed + (BallBaseSpeed/10)</param>
+                        </action>
+                        <action behavior="Bullet" id="0" name="Set speed" sid="6243135676122178" type="Ball">
+                            <param id="0" name="Speed">BallSpeed</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="149096282891971" type="System">
+                            <param id="0" name="Variable">PlayerSpeed</param>
+                            <param id="1" name="Value">Player1.8Direction.MaxSpeed + (PlayerBaseSpeed/10)</param>
+                        </action>
+                        <action behavior="8Direction" id="4" name="Set max speed" sid="5999706833362348" type="Player1">
+                            <param id="0" name="Max Speed">PlayerSpeed</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="8849919326592038" title="Collision Point, Angle of motion and Friction System">
+            <sub-events>
+                <comment>Ball on To hit Blocks</comment>
+                <event-block sid="1200579874725097">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="6382375128130596" type="Ball">
+                            <param id="0" name="Object">ToHitBlocks</param>
+                        </condition>
+                        <condition id="-21" name="Is between values" sid="6096530480784109" type="System">
+                            <param id="0" name="Value">Ball.Bullet.AngleOfMotion</param>
+                            <param id="1" name="Lower bound">180</param>
+                            <param id="2" name="Upper bound">200</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="6254863704088218" type="Ball">
+                            <param id="0" name="Angle">160</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="7789694253422646">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="8774005878063076" type="Ball">
+                            <param id="0" name="Object">ToHitBlocks</param>
+                        </condition>
+                        <condition id="-21" name="Is between values" sid="510136116794371" type="System">
+                            <param id="0" name="Value">Ball.Bullet.AngleOfMotion</param>
+                            <param id="1" name="Lower bound">340</param>
+                            <param id="2" name="Upper bound">360</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="6602282616026253" type="Ball">
+                            <param id="0" name="Angle">20</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Ball On Invi Walls</comment>
+                <event-block sid="4314504519428314">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="2614112404081852" type="Ball">
+                            <param id="0" name="Object">InviWalls</param>
+                        </condition>
+                        <condition id="-21" name="Is between values" sid="6792595791518871" type="System">
+                            <param id="0" name="Value">Ball.bullet.AngleOfMotion</param>
+                            <param id="1" name="Lower bound">0</param>
+                            <param id="2" name="Upper bound">20</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="9990733208160315" type="Ball">
+                            <param id="0" name="Angle">160</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="1006648646064094">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="9062087462015924" type="Ball">
+                            <param id="0" name="Object">InviWalls</param>
+                        </condition>
+                        <condition id="-21" name="Is between values" sid="7646988016258905" type="System">
+                            <param id="0" name="Value">Ball.bullet.AngleOfMotion</param>
+                            <param id="1" name="Lower bound">160</param>
+                            <param id="2" name="Upper bound">180</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="1950203273395601" type="Ball">
+                            <param id="0" name="Angle">20</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="3897030523695697">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="1191802845805745" type="Ball">
+                            <param id="0" name="Object">InviWalls</param>
+                        </condition>
+                        <condition id="-21" name="Is between values" sid="8981289935395521" type="System">
+                            <param id="0" name="Value">Ball.Bullet.AngleOfMotion</param>
+                            <param id="1" name="Lower bound">180</param>
+                            <param id="2" name="Upper bound">200</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="6117588217579589" type="Ball">
+                            <param id="0" name="Angle">340</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="5203020971578782">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="3780938499632286" type="Ball">
+                            <param id="0" name="Object">InviWalls</param>
+                        </condition>
+                        <condition id="-21" name="Is between values" sid="9907951213724598" type="System">
+                            <param id="0" name="Value">Ball.Bullet.AngleOfMotion</param>
+                            <param id="1" name="Lower bound">340</param>
+                            <param id="2" name="Upper bound">360</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="6466219809943326" type="Ball">
+                            <param id="0" name="Angle">200</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Ball on Player</comment>
+                <event-block sid="8891077446120371">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="8993400493078106" type="Ball">
+                            <param id="0" name="Object">Player1</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="1000080867529291">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="828878588082512" type="Player1">
+                                    <param id="0" name="Instance variable">Friction</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="9289122412152113" type="Ball">
+                                    <param id="0" name="Angle">270  + 50 * (Ball.ImagePointX(0) - Player1.ImagePointX(0)) / (Player1.Width / 2)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="5663082907933871">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="4270207270736464" type="Player1">
+                                    <param id="0" name="Instance variable">Friction</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="1244832742113881" type="Ball">
+                                    <param id="0" name="Angle">270  + 50 * (Ball.ImagePointX(0) - Player1.ImagePointX(0)) / (Player1.Width / 2) -30</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="4042116856639853">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="2565628486650151" type="Player1">
+                                    <param id="0" name="Instance variable">Friction</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">-1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="4785747492623128" type="Ball">
+                                    <param id="0" name="Angle">270  + 50 * (Ball.ImagePointX(0) - Player1.ImagePointX(0)) / (Player1.Width / 2) + 30</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="3084024341591916" title="Score System">
+            <sub-events>
+                <comment>Hitting To Hit Blocks</comment>
+                <event-block sid="4405368257792573">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="6848388771592016" type="Ball">
+                            <param id="0" name="Object">ToHitBlocks</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="809503269589091">
+                            <conditions>
+                                <condition id="3" name="Compare frame" sid="7603716255236122" type="ToHitBlocks">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="Number">SeqColor.AnimationFrame</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="6768216078928738">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="3852178742266086" type="System">
+                                            <param id="0" name="Variable">Combo</param>
+                                            <param id="1" name="Comparison">5</param>
+                                            <param id="2" name="Value">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Add to" sid="1275119201522598" type="System">
+                                            <param id="0" name="Variable">Combo</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="-10" name="Add to" sid="1765150661075232" type="System">
+                                            <param id="0" name="Variable">Score</param>
+                                            <param id="1" name="Value">10 * Combo</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="3096701507067518" type="Score">
+                                            <param id="0" name="Text">&quot;Score&quot; &amp;newline &amp;Score</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="7931082792636317" type="ComboText">
+                                            <param id="0" name="Text">&quot;COMBOX&quot; &amp;Combo</param>
+                                        </action>
+                                        <action id="-15" name="Set visible" sid="8631268539073423" type="ComboText">
+                                            <param id="0" name="Visibility">1</param>
+                                        </action>
+                                        <action id="-15" name="Set visible" sid="6817219876420451" type="ComboAni">
+                                            <param id="0" name="Visibility">1</param>
+                                        </action>
+                                        <action behavior="Flash" id="0" name="Flash" sid="5656316127441218" type="ComboAni">
+                                            <param id="0" name="&apos;On&apos; time">0.1</param>
+                                            <param id="1" name="&apos;Off&apos; time">0.1</param>
+                                            <param id="2" name="Duration">1.0</param>
+                                        </action>
+                                        <action behavior="Fade" id="1" name="Start fade" sid="5690196350024669" type="ComboAni" />
+                                        <action behavior="Fade" id="1" name="Start fade" sid="9876141056159274" type="ComboText" />
+                                        <action id="0" name="Call function" sid="273113372300857" type="Function">
+                                            <param id="0" name="Name">&quot;Sequence&quot;</param>
+                                            <param id="1" name="Parameter {n}"></param>
+                                        </action>
+                                        <action id="-10" name="Add to" sid="412245386370008" type="System">
+                                            <param id="0" name="Variable">CorrectHits</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="7108962344551641">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="4375241028014379" type="System">
+                                            <param id="0" name="Variable">Combo</param>
+                                            <param id="1" name="Comparison">2</param>
+                                            <param id="2" name="Value">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Add to" sid="511029147291073" type="System">
+                                            <param id="0" name="Variable">Combo</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="-10" name="Add to" sid="5143995469508613" type="System">
+                                            <param id="0" name="Variable">Score</param>
+                                            <param id="1" name="Value">10 * Combo</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="5973638222296881" type="Score">
+                                            <param id="0" name="Text">&quot;Score &quot; &amp;newline &amp;Score</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="626244342598374" type="Function">
+                                            <param id="0" name="Name">&quot;Sequence&quot;</param>
+                                            <param id="1" name="Parameter {n}"></param>
+                                        </action>
+                                        <action id="-10" name="Add to" sid="2000530543266351" type="System">
+                                            <param id="0" name="Variable">CorrectHits</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="3027382762177669">
+                                    <conditions>
+                                        <condition id="-8" name="Is boolean instance variable set" sid="9227434156524147" type="Player1">
+                                            <param id="0" name="Instance variable">Tutorial</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-15" name="Set visible" sid="6308333153118738" type="Tutorial">
+                                            <param id="0" name="Visibility">0</param>
+                                        </action>
+                                        <action id="-13" name="Set boolean" sid="9272636786032185" type="Player1">
+                                            <param id="0" name="Instance variable">Tutorial</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="3613189112387361">
+                            <conditions>
+                                <condition id="3" inverted="1" name="Compare frame" sid="3248106862591521" type="ToHitBlocks">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="Number">SeqColor.AnimationFrame</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="1282713347705039" type="System">
+                                    <param id="0" name="Variable">Combo</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="-11" name="Subtract from" sid="4102571826514548" type="System">
+                                    <param id="0" name="Variable">Score</param>
+                                    <param id="1" name="Value">5</param>
+                                </action>
+                                <action id="0" name="Set text" sid="2234899137366193" type="Score">
+                                    <param id="0" name="Text">&quot;Score &quot; &amp;newline &amp;Score</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <comment>Losing Life And Game Over</comment>
+                <event-block sid="7650157804833889">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="1089658408594187" type="System">
+                            <param id="0" name="Interval (seconds)">0.2</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="7312609881238912" type="System">
+                            <param id="0" name="Variable">Score</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Go to layout" sid="4517349139579256" type="System">
+                            <param id="0" name="Layout">Game Over</param>
+                        </action>
+                        <action id="6" name="Stop" sid="2453147259256935" type="Audio">
+                            <param id="0" name="Tag">&quot;GM Normal&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="442889495009586">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="6201681783461171" type="Ball">
+                            <param id="0" name="Object">LosingWall</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="6141575522807041">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="8723800535830555" type="System">
+                                    <param id="0" name="Variable">Life</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="2277631629375916" type="Ball" />
+                                <action id="-11" name="Subtract from" sid="8550856506158334" type="System">
+                                    <param id="0" name="Variable">Life</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="0" name="Set text" sid="9980864884247564" type="Life">
+                                    <param id="0" name="Text">&quot;Life &quot; &amp;newline &amp;Life</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="6016121679458632" type="System">
+                                    <param id="0" name="Seconds">2.0</param>
+                                </action>
+                                <action id="5" name="Push" sid="1265971510555486" type="Scores">
+                                    <param id="0" name="Where">0</param>
+                                    <param id="1" name="Value">Score</param>
+                                    <param id="2" name="Axis">0</param>
+                                </action>
+                                <action id="8" name="Sort" sid="4119412349158466" type="Scores">
+                                    <param id="0" name="Axis">0</param>
+                                </action>
+                                <action id="7" name="Reverse" sid="8360720323960009" type="Scores">
+                                    <param id="0" name="Axis">0</param>
+                                </action>
+                                <action id="9" name="Delete" sid="4247526674437607" type="Scores">
+                                    <param id="0" name="Index">4</param>
+                                    <param id="1" name="Axis">0</param>
+                                </action>
+                                <action id="6" name="Stop" sid="5899062176382117" type="Audio">
+                                    <param id="0" name="Tag">&quot;GM Normal&quot;</param>
+                                </action>
+                                <action id="-2" name="Go to layout" sid="866084893114105" type="System">
+                                    <param id="0" name="Layout">Game Over</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="9251460138944079">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="1707098494994826" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="3466846448293357" type="Ball" />
+                                <action id="-11" name="Subtract from" sid="7689545208900047" type="System">
+                                    <param id="0" name="Variable">Life</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="4212646112474822" type="System">
+                                    <param id="0" name="Variable">Combo</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="0" name="Set text" sid="3464934719571004" type="Life">
+                                    <param id="0" name="Text">&quot;Life&quot; &amp;newline &amp;Life</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="6783849270290023" type="System">
+                                    <param id="0" name="Seconds">1.0</param>
+                                </action>
+                                <action id="-3" name="Create object" sid="7300495378956569" type="System">
+                                    <param id="0" name="Object to create">Ball</param>
+                                    <param id="1" name="Layer">&quot;Gameplay&quot;</param>
+                                    <param id="2" name="X">Player1.ImagePointX(0)</param>
+                                    <param id="3" name="Y">435</param>
+                                </action>
+                                <action behavior="Bullet" id="0" name="Set speed" sid="9720928792251879" type="Ball">
+                                    <param id="0" name="Speed">ball.Bullet.Speed + (Ball.Bullet.Speed/10) * (floor(CorrectHits / 5))</param>
+                                </action>
+                                <action behavior="Pin" id="0" name="Pin to object" sid="3022997312638085" type="Ball">
+                                    <param id="0" name="Pin to">Player1</param>
+                                    <param id="1" name="Mode">1</param>
+                                </action>
+                                <action id="-13" name="Set boolean" sid="4880186659414416" type="Player1">
+                                    <param id="0" name="Instance variable">Start</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="531996039243215" title="Easier Life Functions">
+            <sub-events>
+                <event-block sid="9386953082206979">
+                    <conditions>
+                        <condition id="0" name="On function" sid="2688155720652124" type="Function">
+                            <param id="0" name="Name">&quot;Sequence&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Bullet" id="5" name="Set enabled" sid="3329960540961922" type="SeqColor">
+                            <param id="0" name="State">1</param>
+                        </action>
+                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="2965333331086705" type="SeqColor">
+                            <param id="0" name="Angle">180</param>
+                        </action>
+                        <action behavior="Fade" id="4" name="Set fade-out time" sid="7845716166559713" type="SeqColor">
+                            <param id="0" name="Fade-out time">1.0 - BallSpeed/1000</param>
+                        </action>
+                        <action behavior="Fade" id="1" name="Start fade" sid="7713169425434098" type="SeqColor" />
+                    </actions>
+                    <sub-events>
+                        <event-block sid="8654178418893451">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="6531653446404495" type="System">
+                                    <param id="0" name="Variable">SeqChoice</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Bullet" id="5" name="Set enabled" sid="3836462000126852" type="RedColorLittle">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                                <action id="3" name="Start" sid="9500319166427754" type="RedColorLittle">
+                                    <param id="0" name="From">1</param>
+                                </action>
+                                <action id="6" name="Set speed" sid="4463251863607194" type="RedColorLittle">
+                                    <param id="0" name="Speed">1.5 + BallSpeed/110</param>
+                                </action>
+                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="4456543505241503" type="RedColorLittle">
+                                    <param id="0" name="Angle">180</param>
+                                </action>
+                                <action behavior="Bullet" id="0" name="Set speed" sid="2863481311228213" type="RedColorLittle">
+                                    <param id="0" name="Speed">12 + (BallSpeed/8)</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="6714739800518037" type="System">
+                                    <param id="0" name="Seconds">5.5 - BallSpeed/(100 + CorrectHits/3)</param>
+                                </action>
+                                <action id="-3" name="Set position" sid="6323855621771649" type="RedColorLittle">
+                                    <param id="0" name="X">400</param>
+                                    <param id="1" name="Y">552</param>
+                                </action>
+                                <action id="-9" name="Destroy" sid="29184185577732" type="RedColorLittle" />
+                                <action id="-3" name="Create object" sid="4686515661894129" type="System">
+                                    <param id="0" name="Object to create">SeqColor</param>
+                                    <param id="1" name="Layer">&quot;Gameplay&quot;</param>
+                                    <param id="2" name="X">400</param>
+                                    <param id="3" name="Y">552</param>
+                                </action>
+                                <action id="5" name="Set frame" sid="9732373961997996" type="SeqColor">
+                                    <param id="0" name="Frame number">0</param>
+                                </action>
+                                <action id="0" name="Call function" sid="6227473064019725" type="Function">
+                                    <param id="0" name="Name">&quot;SeqChoice&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="6146380776358184">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="4805081812920528" type="System">
+                                    <param id="0" name="Variable">SeqChoice</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Bullet" id="5" name="Set enabled" sid="6253426081647674" type="GreenColorLittle">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                                <action id="3" name="Start" sid="3294531382386848" type="GreenColorLittle">
+                                    <param id="0" name="From">1</param>
+                                </action>
+                                <action id="6" name="Set speed" sid="1687784762602812" type="GreenColorLittle">
+                                    <param id="0" name="Speed">1.5 + BallSpeed/110</param>
+                                </action>
+                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="1763486042601821" type="GreenColorLittle">
+                                    <param id="0" name="Angle">180</param>
+                                </action>
+                                <action behavior="Bullet" id="0" name="Set speed" sid="9441929823100676" type="GreenColorLittle">
+                                    <param id="0" name="Speed">12 + (BallSpeed/8)</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="2813245991284671" type="System">
+                                    <param id="0" name="Seconds">5.5 - BallSpeed/(100 + CorrectHits/3)</param>
+                                </action>
+                                <action id="-3" name="Set position" sid="7987697851619541" type="GreenColorLittle">
+                                    <param id="0" name="X">400</param>
+                                    <param id="1" name="Y">552</param>
+                                </action>
+                                <action id="-9" name="Destroy" sid="8667300741560524" type="GreenColorLittle" />
+                                <action id="-3" name="Create object" sid="9577147378135379" type="System">
+                                    <param id="0" name="Object to create">SeqColor</param>
+                                    <param id="1" name="Layer">&quot;Gameplay&quot;</param>
+                                    <param id="2" name="X">400</param>
+                                    <param id="3" name="Y">552</param>
+                                </action>
+                                <action id="5" name="Set frame" sid="7757604390853376" type="SeqColor">
+                                    <param id="0" name="Frame number">1</param>
+                                </action>
+                                <action id="0" name="Call function" sid="8765612694589931" type="Function">
+                                    <param id="0" name="Name">&quot;SeqChoice&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="6791044469377342">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="4292500102176397" type="System">
+                                    <param id="0" name="Variable">SeqChoice</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Bullet" id="5" name="Set enabled" sid="2189166368718992" type="BlueColorLittle">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                                <action id="3" name="Start" sid="6974667446632629" type="BlueColorLittle">
+                                    <param id="0" name="From">1</param>
+                                </action>
+                                <action id="6" name="Set speed" sid="8064603531545522" type="BlueColorLittle">
+                                    <param id="0" name="Speed">1.5 + BallSpeed/110</param>
+                                </action>
+                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="3662728800890818" type="BlueColorLittle">
+                                    <param id="0" name="Angle">180</param>
+                                </action>
+                                <action behavior="Bullet" id="0" name="Set speed" sid="1718949028512863" type="BlueColorLittle">
+                                    <param id="0" name="Speed">12 + (BallSpeed/8)</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="2642244297935259" type="System">
+                                    <param id="0" name="Seconds">5.5 - BallSpeed/(100 + CorrectHits/3)</param>
+                                </action>
+                                <action id="-3" name="Set position" sid="6651108892287543" type="BlueColorLittle">
+                                    <param id="0" name="X">400</param>
+                                    <param id="1" name="Y">552</param>
+                                </action>
+                                <action id="-9" name="Destroy" sid="195776084661477" type="BlueColorLittle" />
+                                <action id="-3" name="Create object" sid="1653551846004761" type="System">
+                                    <param id="0" name="Object to create">SeqColor</param>
+                                    <param id="1" name="Layer">&quot;Gameplay&quot;</param>
+                                    <param id="2" name="X">400</param>
+                                    <param id="3" name="Y">552</param>
+                                </action>
+                                <action id="5" name="Set frame" sid="631293287678789" type="SeqColor">
+                                    <param id="0" name="Frame number">2</param>
+                                </action>
+                                <action id="0" name="Call function" sid="8126128406035443" type="Function">
+                                    <param id="0" name="Name">&quot;SeqChoice&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="3975197088315632">
+                    <conditions>
+                        <condition id="0" name="On function" sid="3365237912813365" type="Function">
+                            <param id="0" name="Name">&quot;SeqChoice&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="9875128593414584" type="System">
+                            <param id="0" name="Variable">SeqChoice</param>
+                            <param id="1" name="Value">floor(random(3))</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="54035695137044">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="8911252541960877" type="System">
+                                    <param id="0" name="Variable">SeqChoice</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="816170305607018" type="System">
+                                    <param id="0" name="Object to create">RedColorLittle</param>
+                                    <param id="1" name="Layer">&quot;Gameplay&quot;</param>
+                                    <param id="2" name="X">500</param>
+                                    <param id="3" name="Y">552</param>
+                                </action>
+                                <action id="-16" name="Set opacity" sid="9574662241148089" type="RedColorLittle">
+                                    <param id="0" name="Opacity">50</param>
+                                </action>
+                                <action id="2" name="Stop" sid="9470028466850966" type="RedColorLittle" />
+                            </actions>
+                        </event-block>
+                        <event-block sid="4946869257731452">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="6659942613512186" type="System">
+                                    <param id="0" name="Variable">SeqChoice</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="8320189425952998" type="System">
+                                    <param id="0" name="Object to create">GreenColorLittle</param>
+                                    <param id="1" name="Layer">&quot;Gameplay&quot;</param>
+                                    <param id="2" name="X">500</param>
+                                    <param id="3" name="Y">552</param>
+                                </action>
+                                <action id="-16" name="Set opacity" sid="1066621873283278" type="GreenColorLittle">
+                                    <param id="0" name="Opacity">50</param>
+                                </action>
+                                <action id="2" name="Stop" sid="3695472585201407" type="GreenColorLittle" />
+                            </actions>
+                        </event-block>
+                        <event-block sid="5660678555515216">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="7631775808985032" type="System">
+                                    <param id="0" name="Variable">SeqChoice</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="7311853379493743" type="System">
+                                    <param id="0" name="Object to create">BlueColorLittle</param>
+                                    <param id="1" name="Layer">&quot;Gameplay&quot;</param>
+                                    <param id="2" name="X">500</param>
+                                    <param id="3" name="Y">552</param>
+                                </action>
+                                <action id="-16" name="Set opacity" sid="7137399772780163" type="BlueColorLittle">
+                                    <param id="0" name="Opacity">50</param>
+                                </action>
+                                <action id="2" name="Stop" sid="9119932712515965" type="BlueColorLittle" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="7665245112057355" title="Animation System">
+            <sub-events>
+                <event-block sid="9765052192816567">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="7192388513050064" type="Ball">
+                            <param id="0" name="Object">ToHitBlocks</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="8153816033442473">
+                            <conditions>
+                                <condition id="3" name="Compare frame" sid="3349104609901491" type="ToHitBlocks">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="Number">SeqColor.AnimationFrame</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Flash" id="0" name="Flash" sid="3494376280967109" type="ToHitBlocks">
+                                    <param id="0" name="&apos;On&apos; time">0.1</param>
+                                    <param id="1" name="&apos;Off&apos; time">0.1</param>
+                                    <param id="2" name="Duration">1.0</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="1415741140333509">
+                                    <conditions>
+                                        <condition id="-1" name="Compare X" sid="8083044937456501" type="Ball">
+                                            <param id="0" name="Comparison">5</param>
+                                            <param id="1" name="X co-ordinate">750</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-3" name="Create object" sid="1295737122766181" type="System">
+                                            <param id="0" name="Object to create">ScoreOnBall</param>
+                                            <param id="1" name="Layer">&quot;Gameplay&quot;</param>
+                                            <param id="2" name="X">Ball.X - 20</param>
+                                            <param id="3" name="Y">Ball.Y +20</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="4071752485190811" type="ScoreOnBall">
+                                            <param id="0" name="Text">&quot;+&quot; &amp;(10*Combo)</param>
+                                        </action>
+                                        <action behavior="Fade" id="1" name="Start fade" sid="3900443282675124" type="ScoreOnBall" />
+                                    </actions>
+                                </event-block>
+                                <event-block sid="4859841808423967">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="7970559961202866" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-3" name="Create object" sid="5009162120265533" type="System">
+                                            <param id="0" name="Object to create">ScoreOnBall</param>
+                                            <param id="1" name="Layer">&quot;Gameplay&quot;</param>
+                                            <param id="2" name="X">Ball.X + 20</param>
+                                            <param id="3" name="Y">Ball.Y +20</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="436146921757269" type="ScoreOnBall">
+                                            <param id="0" name="Text">&quot;+&quot; &amp;(10*Combo)</param>
+                                        </action>
+                                        <action behavior="Fade" id="1" name="Start fade" sid="6691657002624458" type="ScoreOnBall" />
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="2814853071518713">
+                            <conditions>
+                                <condition id="3" inverted="1" name="Compare frame" sid="7412616461362252" type="ToHitBlocks">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="Number">SeqColor.AnimationFrame</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="2205746427796172" type="System">
+                                    <param id="0" name="Object to create">ScoreOnBall</param>
+                                    <param id="1" name="Layer">&quot;Gameplay&quot;</param>
+                                    <param id="2" name="X">Ball.X + 20</param>
+                                    <param id="3" name="Y">Ball.Y +20</param>
+                                </action>
+                                <action id="0" name="Set text" sid="9337560603222272" type="ScoreOnBall">
+                                    <param id="0" name="Text">&quot;-5&quot;</param>
+                                </action>
+                                <action behavior="Fade" id="1" name="Start fade" sid="481757419092251" type="ScoreOnBall" />
+                            </actions>
+                            <sub-events>
+                                <event-block sid="7403986385311088">
+                                    <conditions>
+                                        <condition id="3" name="Compare frame" sid="727098862938499" type="ToHitBlocks">
+                                            <param id="0" name="Comparison">0</param>
+                                            <param id="1" name="Number">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="5" name="Set frame" sid="5650080118497612" type="ToHitBlocks">
+                                            <param id="0" name="Frame number">3</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="7949053047403457" type="System">
+                                            <param id="0" name="Seconds">0.5</param>
+                                        </action>
+                                        <action id="5" name="Set frame" sid="8602104092039522" type="ToHitBlocks">
+                                            <param id="0" name="Frame number">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="6231575595080441">
+                                    <conditions>
+                                        <condition id="3" name="Compare frame" sid="3918590244872664" type="ToHitBlocks">
+                                            <param id="0" name="Comparison">0</param>
+                                            <param id="1" name="Number">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="5" name="Set frame" sid="2001197123409397" type="ToHitBlocks">
+                                            <param id="0" name="Frame number">4</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="7313917960388847" type="System">
+                                            <param id="0" name="Seconds">0.5</param>
+                                        </action>
+                                        <action id="5" name="Set frame" sid="5832046616897551" type="ToHitBlocks">
+                                            <param id="0" name="Frame number">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="4568926498340558">
+                                    <conditions>
+                                        <condition id="3" name="Compare frame" sid="6905741580094985" type="ToHitBlocks">
+                                            <param id="0" name="Comparison">0</param>
+                                            <param id="1" name="Number">2</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="5" name="Set frame" sid="8750070221939804" type="ToHitBlocks">
+                                            <param id="0" name="Frame number">5</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="7107419628106095" type="System">
+                                            <param id="0" name="Seconds">0.5</param>
+                                        </action>
+                                        <action id="5" name="Set frame" sid="2901568456679665" type="ToHitBlocks">
+                                            <param id="0" name="Frame number">2</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="7230433200220259" title="Debugging">
+            <sub-events>
+                <event-block sid="6087400251034527">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="9296244445864417" type="System" />
+                    </conditions>
+                    <actions>
+                        <action disabled="1" id="0" name="Set text" sid="4682206121954054" type="Friction">
+                            <param id="0" name="Text">&quot;&quot; &amp;Player1.8Direction.Speed</param>
+                        </action>
+                        <action disabled="1" id="0" name="Set text" sid="6151972297071816" type="AngleofMotion">
+                            <param id="0" name="Text">&quot;&quot; &amp; Ball.Bullet.Speed</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="3476315814428233" title="Sound System">
+            <sub-events>
+                <event-block sid="9204380440957851">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="5527456201146496" type="Ball">
+                            <param id="0" name="Object">Player1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="3296085589407878" type="Audio">
+                            <param id="0" name="Audio file">Sound_cursore</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="4933287324108941">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="1851114702744271" type="Ball">
+                            <param id="0" name="Object">ToHitBlocks</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="3456253776981491">
+                            <conditions>
+                                <condition id="3" name="Compare frame" sid="994387560330167" type="ToHitBlocks">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="Number">SeqColor.AnimationFrame</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="3059537476124284">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="1458269573284216" type="System">
+                                            <param id="0" name="First value">(Combo-1) % 10 </param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Play" sid="5358454205179895" type="Audio">
+                                            <param id="0" name="Audio file">blochi_positive</param>
+                                            <param id="2" name="Loop">0</param>
+                                            <param id="3" name="Volume">0</param>
+                                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="1537225816158252">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="2668917646169729" type="System">
+                                            <param id="0" name="First value">(Combo + 1) % 2</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Play" sid="3261477466269125" type="Audio">
+                                            <param id="0" name="Audio file">blochi_positive_02</param>
+                                            <param id="2" name="Loop">0</param>
+                                            <param id="3" name="Volume">0</param>
+                                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="9534625709519477">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="3165968528821954" type="System">
+                                            <param id="0" name="First value">(Combo + 1) % 3</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Play" sid="8479223884540292" type="Audio">
+                                            <param id="0" name="Audio file">blochi_positive_03</param>
+                                            <param id="2" name="Loop">0</param>
+                                            <param id="3" name="Volume">0</param>
+                                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="2964350178832032">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="212975625488731" type="System">
+                                            <param id="0" name="First value">(Combo + 1) % 4</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Play" sid="9177687492548216" type="Audio">
+                                            <param id="0" name="Audio file">blochi_positive_04</param>
+                                            <param id="2" name="Loop">0</param>
+                                            <param id="3" name="Volume">0</param>
+                                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="9268182854201961">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="4385841099694832" type="System">
+                                            <param id="0" name="First value">(Combo + 1) % 5</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Play" sid="1294569291829377" type="Audio">
+                                            <param id="0" name="Audio file">blochi_positive_05</param>
+                                            <param id="2" name="Loop">0</param>
+                                            <param id="3" name="Volume">0</param>
+                                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="9056768333967483">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="2218305361493543" type="System">
+                                            <param id="0" name="First value">(Combo + 1) % 6</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Play" sid="6660326504371313" type="Audio">
+                                            <param id="0" name="Audio file">blochi_positive_06</param>
+                                            <param id="2" name="Loop">0</param>
+                                            <param id="3" name="Volume">0</param>
+                                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="5376405829365951">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="2856436735848552" type="System">
+                                            <param id="0" name="First value">(Combo + 1) % 7</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Play" sid="7951485510726544" type="Audio">
+                                            <param id="0" name="Audio file">blochi_positive_07</param>
+                                            <param id="2" name="Loop">0</param>
+                                            <param id="3" name="Volume">0</param>
+                                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="3511872153508594">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="6581579796584334" type="System">
+                                            <param id="0" name="First value">(Combo + 1) % 8</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Play" sid="152579902814983" type="Audio">
+                                            <param id="0" name="Audio file">blochi_positive_08</param>
+                                            <param id="2" name="Loop">0</param>
+                                            <param id="3" name="Volume">0</param>
+                                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="121041932740117">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="2361462889743087" type="System">
+                                            <param id="0" name="First value">(Combo + 1) % 9</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Play" sid="6610608765438941" type="Audio">
+                                            <param id="0" name="Audio file">blochi_positive_09</param>
+                                            <param id="2" name="Loop">0</param>
+                                            <param id="3" name="Volume">0</param>
+                                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="2497090048864057">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="3078552609495412" type="System">
+                                            <param id="0" name="First value">(Combo + 1) % 10</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Play" sid="2088220029410915" type="Audio">
+                                            <param id="0" name="Audio file">blochi_positive_10</param>
+                                            <param id="2" name="Loop">0</param>
+                                            <param id="3" name="Volume">0</param>
+                                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="5130050276957459">
+                            <conditions>
+                                <condition id="3" inverted="1" name="Compare frame" sid="6854985054586247" type="ToHitBlocks">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="Number">SeqColor.AnimationFrame</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Play" sid="8153996887162152" type="Audio">
+                                    <param id="0" name="Audio file">blochi_negative</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="6656410354511733" title="LEVEL UP System">
+            <sub-events>
+                <event-block sid="604118408128763">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="3884276101319908" type="System">
+                            <param id="0" name="Variable">CorrectHits</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">5</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="5894272831762794" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="9655576781177023" type="LevelUp">
+                            <param id="0" name="Text">&quot;&quot;&amp;Level2</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="7398363543728365" type="LevelUp">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action behavior="Fade" id="1" name="Start fade" sid="7398476483769969" type="LevelUp" />
+                        <action behavior="Flash" id="0" name="Flash" sid="1670251751196787" type="LevelUp">
+                            <param id="0" name="&apos;On&apos; time">0.1</param>
+                            <param id="1" name="&apos;Off&apos; time">0.1</param>
+                            <param id="2" name="Duration">2.0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="4297110356750464">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="7978267366800117" type="System">
+                            <param id="0" name="Variable">CorrectHits</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">10</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="594802824877926" type="System" />
+                        <condition id="-4" name="Trigger once while true" sid="2693618234968227" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="4720560250001516" type="LevelUp">
+                            <param id="0" name="Text">&quot;&quot;&amp;Level3</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="3414358073724997" type="LevelUp">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action behavior="Fade" id="1" name="Start fade" sid="7833428942903167" type="LevelUp" />
+                        <action behavior="Flash" id="0" name="Flash" sid="516823159209536" type="LevelUp">
+                            <param id="0" name="&apos;On&apos; time">0.1</param>
+                            <param id="1" name="&apos;Off&apos; time">0.1</param>
+                            <param id="2" name="Duration">2.0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="6774996411920775">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="3486096831636777" type="System">
+                            <param id="0" name="Variable">CorrectHits</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">15</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="366412868973105" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="8130120032647778" type="LevelUp">
+                            <param id="0" name="Text">&quot;&quot;&amp;Level4</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="865021020051017" type="LevelUp">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action behavior="Fade" id="1" name="Start fade" sid="6291684365575771" type="LevelUp" />
+                        <action behavior="Flash" id="0" name="Flash" sid="9261450015099978" type="LevelUp">
+                            <param id="0" name="&apos;On&apos; time">0.1</param>
+                            <param id="1" name="&apos;Off&apos; time">0.1</param>
+                            <param id="2" name="Duration">2.0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="2957803513563301">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="3451831472205801" type="System">
+                            <param id="0" name="Variable">CorrectHits</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">20</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="4174118859481306" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="3560194911583218" type="LevelUp">
+                            <param id="0" name="Text">&quot;&quot;&amp;Level5</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="7145415868944175" type="LevelUp">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action behavior="Fade" id="1" name="Start fade" sid="293932454934963" type="LevelUp" />
+                        <action behavior="Flash" id="0" name="Flash" sid="4716536834918402" type="LevelUp">
+                            <param id="0" name="&apos;On&apos; time">0.1</param>
+                            <param id="1" name="&apos;Off&apos; time">0.1</param>
+                            <param id="2" name="Duration">2.0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="8148631837465451">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="5284722527301881" type="System">
+                            <param id="0" name="Variable">CorrectHits</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">25</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="4601236159093524" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="8640428319806323" type="LevelUp">
+                            <param id="0" name="Text">&quot;&quot;&amp;Level6</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="1127799474980629" type="LevelUp">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action behavior="Fade" id="1" name="Start fade" sid="2378662489673633" type="LevelUp" />
+                        <action behavior="Flash" id="0" name="Flash" sid="5495536452801234" type="LevelUp">
+                            <param id="0" name="&apos;On&apos; time">0.1</param>
+                            <param id="1" name="&apos;Off&apos; time">0.1</param>
+                            <param id="2" name="Duration">2.0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="8621209514914173">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="8314381984015942" type="System">
+                            <param id="0" name="Variable">CorrectHits</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">30</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="8089898059045372" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="6653790662357162" type="LevelUp">
+                            <param id="0" name="Text">&quot;&quot;&amp;Level7</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="6933543312104084" type="LevelUp">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action behavior="Fade" id="1" name="Start fade" sid="9723757315042184" type="LevelUp" />
+                        <action behavior="Flash" id="0" name="Flash" sid="765400005810035" type="LevelUp">
+                            <param id="0" name="&apos;On&apos; time">0.1</param>
+                            <param id="1" name="&apos;Off&apos; time">0.1</param>
+                            <param id="2" name="Duration">2.0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="4468372511785594">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="6528867972736371" type="System">
+                            <param id="0" name="Variable">CorrectHits</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">35</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="5462736777861073" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="1015179939803329" type="LevelUp">
+                            <param id="0" name="Text">&quot;&quot;&amp;Level8</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="401421125761812" type="LevelUp">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action behavior="Fade" id="1" name="Start fade" sid="5793035729701329" type="LevelUp" />
+                        <action behavior="Flash" id="0" name="Flash" sid="750361055806085" type="LevelUp">
+                            <param id="0" name="&apos;On&apos; time">0.1</param>
+                            <param id="1" name="&apos;Off&apos; time">0.1</param>
+                            <param id="2" name="Duration">2.0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>
